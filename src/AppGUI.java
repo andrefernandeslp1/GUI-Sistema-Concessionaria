@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.*;
+
 
 public class AppGUI extends JFrame {
     private Loja loja;
@@ -11,15 +13,16 @@ public class AppGUI extends JFrame {
     private JPanel inventoryPanel;
     private JPanel salesPanel;
 
+    private JPanel novaLojaPanel;
+
     public AppGUI() {
         super("SYSCAR - Sistema de Informações para Concessionárias de Automóveis");
-        loja = new Loja();
 
         // Carregar objeto loja de arquivo JSON
         try {
             loja = loja.carregarLoja();
         } catch (Exception e) {
-            // Tratar exceção de carregamento
+            loja = new Loja();
         }
 
         createInitialPanel();
@@ -27,6 +30,7 @@ public class AppGUI extends JFrame {
         createClientsPanel();
         createInventoryPanel();
         createSalesPanel();
+        createNovaLojaPanel();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
@@ -37,7 +41,7 @@ public class AppGUI extends JFrame {
 
     private void createInitialPanel() {
         initialPanel = new JPanel();
-        initialPanel.setLayout(new GridLayout(6, 1));
+        initialPanel.setLayout(new GridLayout(4, 2));
 
         JLabel nameLabel = new JLabel("Nome: " + loja.getNome());
         JLabel caixaLabel = new JLabel("Saldo de Caixa: " + loja.getCaixa());
@@ -57,8 +61,12 @@ public class AppGUI extends JFrame {
         JButton exitButton = new JButton("Sair do Programa");
         exitButton.addActionListener(e -> exitProgram());
 
+        JButton novaLojaButton = new JButton("Criar Nova Loja");
+        novaLojaButton.addActionListener(e -> showNovaLojaPanel());
+
         initialPanel.add(nameLabel);
         initialPanel.add(caixaLabel);
+        initialPanel.add(novaLojaButton);
         initialPanel.add(resourcesButton);
         initialPanel.add(clientsButton);
         initialPanel.add(inventoryButton);
@@ -66,6 +74,13 @@ public class AppGUI extends JFrame {
         initialPanel.add(exitButton);
 
         add(initialPanel);
+        /*
+        if (loja.getNome() == null) {
+            showNovaLojaPanel();
+        } else {
+            //showInitialPanel();
+        }
+        */
     }
 
     private void createResourcesPanel() {
@@ -190,6 +205,47 @@ public class AppGUI extends JFrame {
         salesPanel.add(backButton);
     }
 
+    private void createNovaLojaPanel() {
+        novaLojaPanel = new JPanel();
+        novaLojaPanel.setLayout(new GridLayout(7, 1));
+
+        JLabel titleLabel = new JLabel("Nova Loja\n");
+        titleLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16));
+
+        JLabel nameLabel = new JLabel("Nome da Loja:");
+        JTextField nameField = new JTextField();
+
+        JLabel caixaLabel = new JLabel("Saldo de Caixa:");
+        JTextField caixaField = new JTextField();
+
+        JButton confirmButton = new JButton("Confirmar");
+        confirmButton.addActionListener(e -> {
+            // Lógica para criar nova loja
+            loja = new Loja(nameField.getText(), Double.parseDouble(caixaField.getText()));
+            createInitialPanel();
+            showInitialPanel();
+        });
+
+        JButton backButton = new JButton("Voltar");
+        backButton.addActionListener(e -> showInitialPanel());
+
+        novaLojaPanel.add(titleLabel);
+        novaLojaPanel.add(nameLabel);
+        novaLojaPanel.add(nameField);
+        novaLojaPanel.add(caixaLabel);
+        novaLojaPanel.add(caixaField);
+        novaLojaPanel.add(confirmButton);
+        novaLojaPanel.add(backButton);
+
+        //add(novaLojaPanel);
+    }
+
+    private void showNovaLojaPanel() {
+        setContentPane(novaLojaPanel);
+        revalidate();
+        repaint();
+    }
+
     private void showResourcesPanel() {
         setContentPane(resourcesPanel);
         revalidate();
@@ -222,6 +278,11 @@ public class AppGUI extends JFrame {
 
     private void exitProgram() {
         // Lógica para salvar loja em arquivo JSON
+        try {
+            loja.salvarLoja(loja);
+        } catch (Exception e) {
+            System.out.println("Erro ao salvar arquivo loja.json!");
+        }
         System.exit(0);
     }
 
