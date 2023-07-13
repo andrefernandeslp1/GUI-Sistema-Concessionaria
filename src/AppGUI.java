@@ -18,11 +18,14 @@ public class AppGUI extends JFrame {
     public AppGUI() {
         super("SYSCAR - Sistema de Informações para Concessionárias de Automóveis");
 
+        loja = new Loja();
+
         // Carregar objeto loja de arquivo JSON
         try {
             loja = loja.carregarLoja();
         } catch (Exception e) {
-            loja = new Loja();
+
+            System.out.println("Erro ao carregar arquivo loja.json!");
         }
 
         createInitialPanel();
@@ -93,6 +96,7 @@ public class AppGUI extends JFrame {
         JButton addEmployeeButton = new JButton("Cadastrar Funcionário");
         addEmployeeButton.addActionListener(e -> {
             // Lógica para cadastrar funcionário
+            loja.cadastrarFuncionarioGUI();
         });
 
         JButton fireEmployeeButton = new JButton("Demitir Funcionário");

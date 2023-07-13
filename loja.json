@@ -1,8 +1,39 @@
 {
-  "nome": "André Car",
-  "caixa": 1000000.0,
+  "nome": "Template",
+  "caixa": 0.0,
   "carros": [],
   "clientes": [],
-  "funcionarios": [],
+  "funcionarios": [
+    {
+      "matricula": "987sec",
+      "cargo": "secretário",
+      "nome": "george",
+      "cpf": "987654321"
+    },
+    {
+      "matricula": "111ger",
+      "cargo": "gerente",
+      "nome": "Andre",
+      "cpf": "11122233344"
+    },
+    {
+      "matricula": "123asg",
+      "cargo": "asg",
+      "nome": "joao",
+      "cpf": "1234567890"
+    },
+    {
+      "matricula": "000con",
+      "cargo": "contador",
+      "nome": "Pedro",
+      "cpf": "00000000000"
+    },
+    {
+      "matricula": "123Pin",
+      "cargo": "Pintor",
+      "nome": "Joaquim",
+      "cpf": "123456789"
+    }
+  ],
   "clientesVIP": {}
 }

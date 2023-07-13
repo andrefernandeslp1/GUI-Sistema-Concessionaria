@@ -2,7 +2,6 @@ import java.util.*;
 import java.io.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import javax.swing.*;
 
 public class Loja {
   private String nome;
@@ -13,19 +12,7 @@ public class Loja {
   private Map<String, Cliente> clientesVIP = new HashMap<String, Cliente>();
   private transient Scanner input = new Scanner(System.in);
 
-  private transient JPanel cadastrarFuncionarioPanel;
-  private transient JPanel mensagens;
-  private transient JPanel demitirFuncionarioPanel;
-  private transient JPanel consultarFuncionarioPanel;
-
-
   public Loja() {
-    this.nome = "Template";
-    this.caixa = 0.0;
-    this.carros = new ArrayList<Carro>();
-    this.clientes = new ArrayList<Cliente>();
-    this.funcionarios = new ArrayList<Funcionario>();
-    this.clientesVIP = new HashMap<String, Cliente>();
   }
 
   public Loja(String nome, Double caixa) {
@@ -201,7 +188,7 @@ public void adicionarCliente2(Cliente cliente){
   public void adicionarFuncionario(Funcionario funcionario) {
     this.funcionarios.add(funcionario);
   }
-  /*
+
   public void cadastrarFuncionario() {
     System.out.println("\nCadastrando funcionário...");
     System.out.println("Digite o nome do funcionário:");
@@ -215,38 +202,6 @@ public void adicionarCliente2(Cliente cliente){
     System.out.println("\nFuncionário cadastrado com sucesso!");
     System.out.println("Matrícula: " + funcionario.getMatricula());
   }
-  */
-  // interface gráfica para cadastrarFuncionario()
-  public void cadastrarFuncionarioGUI() {
-    cadastrarFuncionarioPanel = new JPanel();
-    cadastrarFuncionarioPanel.setLayout(new BoxLayout(cadastrarFuncionarioPanel, BoxLayout.Y_AXIS));
-    cadastrarFuncionarioPanel.add(new JLabel("Digite o nome do funcionário:"));
-    JTextField nome = new JTextField();
-    cadastrarFuncionarioPanel.add(nome);
-    cadastrarFuncionarioPanel.add(new JLabel("Digite o CPF do funcionário:"));
-    JTextField cpf = new JTextField();
-    cadastrarFuncionarioPanel.add(cpf);
-    cadastrarFuncionarioPanel.add(new JLabel("Digite o cargo do funcionário:"));
-    JTextField cargo = new JTextField();
-    cadastrarFuncionarioPanel.add(cargo);
-    int result = JOptionPane.showConfirmDialog(null, cadastrarFuncionarioPanel, "Cadastrar Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-    if (result == JOptionPane.OK_OPTION) {
-      Funcionario funcionario = new Funcionario(nome.getText(), cpf.getText(), cargo.getText());
-      this.funcionarios.add(funcionario);
-      mensagens = new JPanel();
-      mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
-      mensagens.add(new JLabel("Funcionário cadastrado com sucesso!"));
-      mensagens.add(new JLabel("\nMatrícula: " + funcionario.getMatricula()));
-      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
-
-    } else {
-      mensagens = new JPanel();
-      mensagens.add(new JLabel("Cancelado!"));
-      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
-
-    }
-  }
-
 
   public void cadastrarCarro() {
     System.out.println("\nCadastrando carro...");
