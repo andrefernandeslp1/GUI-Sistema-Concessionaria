@@ -3,3 +3,6 @@ all:
 
 run:
 	java -cp "bin;lib/*" AppGUI
+
+runlinux:
+	java -cp "bin:lib/*" AppGUI
