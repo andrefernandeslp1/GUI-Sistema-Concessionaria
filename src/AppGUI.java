@@ -102,6 +102,8 @@ public class AppGUI extends JFrame {
         JButton fireEmployeeButton = new JButton("Demitir Funcionário");
         fireEmployeeButton.addActionListener(e -> {
             // Lógica para demitir funcionário
+            loja.demitirFuncionarioGUI();
+
         });
 
         JButton searchEmployeeButton = new JButton("Consultar Funcionário");

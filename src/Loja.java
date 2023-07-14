@@ -79,6 +79,47 @@ public class Loja {
       }
     }
   }
+  public void demitirFuncionarioGUI(){
+    if (this.funcionarios.isEmpty()) {
+      mensagens = new JPanel();
+      mensagens.add(new JLabel("Não há funcionários cadastrados!"));
+      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+      return;
+    } else {
+      demitirFuncionarioPanel = new JPanel();
+      demitirFuncionarioPanel.setLayout(new BoxLayout(demitirFuncionarioPanel, BoxLayout.Y_AXIS));
+      demitirFuncionarioPanel.add(new JLabel("Por favor digite a matrícula do Funcionário:"));
+      JTextField matriculaRemover = new JTextField();
+      demitirFuncionarioPanel.add(matriculaRemover);
+      int result = JOptionPane.showConfirmDialog(null, demitirFuncionarioPanel, "Demitir Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      if (result == JOptionPane.OK_OPTION) {
+        if(verificarFuncionario(matriculaRemover.getText())){
+          System.out.println("\nFuncionário localizado!");
+          System.out.println("Demitindo funcionário...");
+          for (Funcionario funcionario : this.funcionarios) {
+            if (funcionario.getMatricula().equals(matriculaRemover.getText())) {
+              this.funcionarios.remove(funcionario);
+              mensagens = new JPanel();
+              mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
+              mensagens.add(new JLabel("Funcionário demitido com sucesso!"));
+              JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+              return;
+            }
+          }
+        } else {
+            mensagens = new JPanel();
+            mensagens.add(new JLabel("Funcionário não encontrado!"));
+            JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+            return;
+        }
+      } else {
+        mensagens = new JPanel();
+        mensagens.add(new JLabel("Cancelado!"));
+        JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        return;
+      }
+    }
+  }
 
   public boolean verificarFuncionario(String matricula) {
     for (Funcionario funcionario : this.funcionarios) {
