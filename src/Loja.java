@@ -17,6 +17,7 @@ public class Loja {
   private transient JPanel mensagens;
   private transient JPanel demitirFuncionarioPanel;
   private transient JPanel consultarFuncionarioPanel;
+  private transient JPanel listarFuncionariosPanel;
 
 
   public Loja() {
@@ -56,6 +57,7 @@ public class Loja {
     }
   }
 
+  /*
   public void demitirFuncionario() {
     if (this.funcionarios.isEmpty()) {
       System.out.println("\nNão há funcionários cadastrados!");
@@ -79,6 +81,7 @@ public class Loja {
       }
     }
   }
+  */
   public void demitirFuncionarioGUI(){
     if (this.funcionarios.isEmpty()) {
       mensagens = new JPanel();
@@ -94,8 +97,6 @@ public class Loja {
       int result = JOptionPane.showConfirmDialog(null, demitirFuncionarioPanel, "Demitir Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
       if (result == JOptionPane.OK_OPTION) {
         if(verificarFuncionario(matriculaRemover.getText())){
-          System.out.println("\nFuncionário localizado!");
-          System.out.println("Demitindo funcionário...");
           for (Funcionario funcionario : this.funcionarios) {
             if (funcionario.getMatricula().equals(matriculaRemover.getText())) {
               this.funcionarios.remove(funcionario);
@@ -113,9 +114,11 @@ public class Loja {
             return;
         }
       } else {
+        /*
         mensagens = new JPanel();
         mensagens.add(new JLabel("Cancelado!"));
         JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        */
         return;
       }
     }
@@ -281,10 +284,11 @@ public void adicionarCliente2(Cliente cliente){
       JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
 
     } else {
+      /*
       mensagens = new JPanel();
       mensagens.add(new JLabel("Cancelado!"));
       JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
-
+      */
     }
   }
 
@@ -403,6 +407,7 @@ public void adicionarCliente2(Cliente cliente){
     }
   }
 
+  /*
   public void listarFuncionarios() {
     if (this.funcionarios.isEmpty()) {
       System.out.println("\nNão há funcionários cadastrados!");
@@ -416,6 +421,27 @@ public void adicionarCliente2(Cliente cliente){
         System.out.println("Cargo: " + funcionario.getCargo());
         //System.out.println("");
       }
+    }
+  }
+  */
+  public void listarFuncionariosGUI(){
+    if (this.funcionarios.isEmpty()) {
+      mensagens = new JPanel();
+      mensagens.add(new JLabel("Não há funcionários cadastrados!"));
+      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+      return;
+    } else {
+      listarFuncionariosPanel = new JPanel();
+      listarFuncionariosPanel.setLayout(new BoxLayout(listarFuncionariosPanel, BoxLayout.Y_AXIS));
+      listarFuncionariosPanel.add(new JLabel("Listando funcionários..."));
+      for (Funcionario funcionario : this.funcionarios) {
+        listarFuncionariosPanel.add(new JLabel("\nNome: " + funcionario.getNome()));
+        listarFuncionariosPanel.add(new JLabel("Matrícula: " + funcionario.getMatricula()));
+        listarFuncionariosPanel.add(new JLabel("CPF: " + funcionario.getCpf()));
+        listarFuncionariosPanel.add(new JLabel("Cargo: " + funcionario.getCargo()));
+        listarFuncionariosPanel.add(new JLabel(" "));
+      }
+      JOptionPane.showMessageDialog(null, listarFuncionariosPanel, "Listar Funcionários", JOptionPane.PLAIN_MESSAGE);
     }
   }
 
@@ -490,6 +516,47 @@ public void adicionarCliente2(Cliente cliente){
         }
       }
       System.out.println("\nFuncionário não encontrado!");
+    }
+  }
+  public void consultarFuncionarioGUI(){
+    if (this.funcionarios.isEmpty()) {
+      mensagens = new JPanel();
+      mensagens.add(new JLabel("Não há funcionários cadastrados!"));
+      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+      return;
+    } else {
+      consultarFuncionarioPanel = new JPanel();
+      consultarFuncionarioPanel.setLayout(new BoxLayout(consultarFuncionarioPanel, BoxLayout.Y_AXIS));
+      consultarFuncionarioPanel.add(new JLabel("Digite a matrícula do Funcionário que deseja encontrar:"));
+      JTextField matriculaConsultar = new JTextField();
+      consultarFuncionarioPanel.add(matriculaConsultar);
+      int result = JOptionPane.showConfirmDialog(null, consultarFuncionarioPanel, "Consultar Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      if (result == JOptionPane.OK_OPTION) {
+        for (Funcionario funcionario : this.funcionarios) {
+          if (funcionario.getMatricula().equals(matriculaConsultar.getText())) {
+            mensagens = new JPanel();
+            mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
+            mensagens.add(new JLabel("Funcionário localizado!"));
+            mensagens.add(new JLabel("\nNome: " + funcionario.getNome()));
+            mensagens.add(new JLabel("Matrícula: " + funcionario.getMatricula()));
+            mensagens.add(new JLabel("CPF: " + funcionario.getCpf()));
+            mensagens.add(new JLabel("Cargo: " + funcionario.getCargo()));
+            JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+            return;
+          }
+        }
+        mensagens = new JPanel();
+        mensagens.add(new JLabel("Funcionário não encontrado!"));
+        JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        return;
+      } else {
+        /*
+        mensagens = new JPanel();
+        mensagens.add(new JLabel("Cancelado!"));
+        JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        */
+        return;
+      }
     }
   }
 

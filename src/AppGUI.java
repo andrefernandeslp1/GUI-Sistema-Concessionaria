@@ -109,11 +109,13 @@ public class AppGUI extends JFrame {
         JButton searchEmployeeButton = new JButton("Consultar Funcionário");
         searchEmployeeButton.addActionListener(e -> {
             // Lógica para consultar funcionário
+            loja.consultarFuncionarioGUI();
         });
 
         JButton listEmployeesButton = new JButton("Listar Funcionários");
         listEmployeesButton.addActionListener(e -> {
             // Lógica para listar funcionários
+            loja.listarFuncionariosGUI();
         });
 
         JButton backButton = new JButton("Voltar");
