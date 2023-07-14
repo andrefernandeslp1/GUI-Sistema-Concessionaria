@@ -21,6 +21,9 @@ public class Loja {
   private transient JPanel listarFuncionariosPanel;
   private transient JPanel cadastrarClientePanel;
 
+  private transient JPanel Panel;
+
+
 
   public Loja() {
     this.nome = "Template";
@@ -409,6 +412,13 @@ public void adicionarCliente2(Cliente cliente){
       System.out.println("Cliente não VIP!");
     }
   }
+  public String verificarClienteVIPGUI(String cpf) {
+    if(this.clientesVIP.containsKey(cpf)){
+      return "Cliente VIP!!! *****";
+    } else {
+      return "Cliente não VIP!";
+    }
+  }
 
   // usar na classe estoque.
   public void listarCarros() {
@@ -432,6 +442,7 @@ public void adicionarCliente2(Cliente cliente){
 
   }
 
+  /*
   public void listarClientes() {
     if (this.clientes.isEmpty()) {
       System.out.println("\nNão há clientes cadastrados!");
@@ -447,6 +458,32 @@ public void adicionarCliente2(Cliente cliente){
         // tem que por uma verificação pra conferir se o cliente possui carro ou não
         listarCarrosCliente(cliente);
       }
+    }
+  }
+  */
+  public void listarClientesGUI(){
+    if (this.clientes.isEmpty()) {
+      //mensagens = new JPanel();
+      //mensagens.add(new JLabel("Não há clientes cadastrados!"));
+      //JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+      JOptionPane.showMessageDialog(null, "Não há clientes cadastrados!");
+      return;
+    } else {
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Listando clientes..."));
+      for (Cliente cliente : this.clientes) {
+        Panel.add(new JLabel("\nNome: " + cliente.getNome()));
+        Panel.add(new JLabel("CPF: " + cliente.getCpf()));
+        Panel.add(new JLabel("Cadastro: " + cliente.getCadastro()));
+        Panel.add(new JLabel("Carros comprados: "));
+        Panel.add(new JLabel(verificarClienteVIPGUI(cliente.getCpf())));
+        //verificarClienteVIP(cliente.getCpf());
+        Panel.add(new JLabel(listarCarrosClienteGUI(cliente)));
+        //listarCarrosClienteGUI(cliente);
+        Panel.add(new JLabel(" "));
+      }
+      JOptionPane.showMessageDialog(null, Panel, "Listar Clientes", JOptionPane.PLAIN_MESSAGE);
     }
   }
 
@@ -518,6 +555,52 @@ public void adicionarCliente2(Cliente cliente){
 
     }
   }
+  public void consultarClienteGUI(){
+    if (this.clientes.isEmpty()) {
+      mensagens = new JPanel();
+      mensagens.add(new JLabel("Não há clientes cadastrados!"));
+      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+      return;
+    } else {
+      consultarFuncionarioPanel = new JPanel();
+      consultarFuncionarioPanel.setLayout(new BoxLayout(consultarFuncionarioPanel, BoxLayout.Y_AXIS));
+      consultarFuncionarioPanel.add(new JLabel("Digite o CPF do cliente que deseja encontrar:"));
+      JTextField cpfCliente = new JTextField();
+      consultarFuncionarioPanel.add(cpfCliente);
+      int result = JOptionPane.showConfirmDialog(null, consultarFuncionarioPanel, "Consultar Cliente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      if (result == JOptionPane.OK_OPTION) {
+        if(verificarCliente(cpfCliente.getText())){
+          for (Cliente cliente : this.clientes) {
+            if (cliente.getCpf().equals(cpfCliente.getText())) {
+              mensagens = new JPanel();
+              mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
+              mensagens.add(new JLabel("Cliente localizado!"));
+              mensagens.add(new JLabel("\nNome: " + cliente.getNome()));
+              mensagens.add(new JLabel("Cadastro: " + cliente.getCadastro()));
+              mensagens.add(new JLabel("CPF: " + cliente.getCpf()));
+              JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+              verificarClienteVIP(cliente.getCpf());
+              listarCarrosCliente(cliente);
+              return;
+            }
+          }
+        } else {
+          mensagens = new JPanel();
+          mensagens.add(new JLabel("Cliente não encontrado!"));
+          JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+          return;
+        }
+      } else {
+        /*
+        mensagens = new JPanel();
+        mensagens.add(new JLabel("Cancelado!"));
+        JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        */
+        return;
+      }
+    }
+  }
+
 
   public void listarCarrosCliente(Cliente cliente){
     if (cliente.getCarrosComprados().isEmpty()) {
@@ -535,6 +618,26 @@ public void adicionarCliente2(Cliente cliente){
         System.out.println("Preço: " + carro.getPreco());
         //System.out.println("");
       }
+    }
+  }
+
+  public String listarCarrosClienteGUI(Cliente cliente){
+    if (cliente.getCarrosComprados().isEmpty()) {
+      return "\nEste cliente não possui carros comprados!";
+      //System.out.println("");
+    } else {
+      String carros = "\nEste cliente possui os seguintes carros comprados:";
+      for (Carro carro : cliente.getCarrosComprados()) {
+        carros += "\nMarca: " + carro.getMarca();
+        carros += "\nModelo: " + carro.getModelo();
+        carros += "\nCor: " + carro.getCor();
+        carros += "\nAno: " + carro.getAno();
+        carros += "\nChassi: " + carro.getChassi();
+        carros += "\nCombustível: " + carro.getCombustivel();
+        carros += "\nPreço: " + carro.getPreco();
+        //System.out.println("");
+      }
+      return carros;
     }
   }
 

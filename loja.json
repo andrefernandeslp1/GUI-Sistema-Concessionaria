@@ -14,6 +14,18 @@
       "carrosComprados": [],
       "nome": "Ricardo",
       "cpf": "22233344455"
+    },
+    {
+      "cadastro": "And000",
+      "carrosComprados": [],
+      "nome": "Andre",
+      "cpf": "00011122233"
+    },
+    {
+      "cadastro": "Mar333",
+      "carrosComprados": [],
+      "nome": "Maria",
+      "cpf": "33344455566"
     }
   ],
   "funcionarios": [

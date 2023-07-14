@@ -38,7 +38,7 @@ public class Funcionario extends Pessoa {
     adicionarClientePanel.add(new JLabel("Digite o CPF do cliente:"));
     JTextField cpfField = new JTextField();
     adicionarClientePanel.add(cpfField);
-    int result = JOptionPane.showConfirmDialog(null, adicionarClientePanel, "Adicionar Cliente", JOptionPane.OK_CANCEL_OPTION);
+    int result = JOptionPane.showConfirmDialog(null, adicionarClientePanel, "Adicionar Cliente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
     if (result == JOptionPane.OK_OPTION) {
       Cliente cliente = new Cliente(nomeField.getText(), cpfField.getText());
       clientes2.add(cliente);
