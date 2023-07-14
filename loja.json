@@ -5,12 +5,6 @@
   "clientes": [],
   "funcionarios": [
     {
-      "matricula": "111ger",
-      "cargo": "gerente",
-      "nome": "Andre",
-      "cpf": "11122233344"
-    },
-    {
       "matricula": "123asg",
       "cargo": "asg",
       "nome": "joao",
