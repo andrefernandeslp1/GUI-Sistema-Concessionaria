@@ -2,7 +2,20 @@
   "nome": "Template",
   "caixa": 0.0,
   "carros": [],
-  "clientes": [],
+  "clientes": [
+    {
+      "cadastro": "Fer111",
+      "carrosComprados": [],
+      "nome": "Fernandes",
+      "cpf": "11122233344"
+    },
+    {
+      "cadastro": "Ric222",
+      "carrosComprados": [],
+      "nome": "Ricardo",
+      "cpf": "22233344455"
+    }
+  ],
   "funcionarios": [
     {
       "matricula": "123asg",

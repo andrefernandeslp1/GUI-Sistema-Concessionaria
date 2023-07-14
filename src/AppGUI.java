@@ -103,7 +103,6 @@ public class AppGUI extends JFrame {
         fireEmployeeButton.addActionListener(e -> {
             // Lógica para demitir funcionário
             loja.demitirFuncionarioGUI();
-
         });
 
         JButton searchEmployeeButton = new JButton("Consultar Funcionário");
@@ -139,6 +138,8 @@ public class AppGUI extends JFrame {
         JButton addClientButton = new JButton("Cadastrar Cliente");
         addClientButton.addActionListener(e -> {
             // Lógica para cadastrar cliente
+            loja.cadastrarClienteGUI();
+
         });
 
         JButton searchClientButton = new JButton("Consultar Cliente");

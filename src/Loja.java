@@ -3,6 +3,7 @@ import java.io.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javax.swing.*;
+import java.awt.*;
 
 public class Loja {
   private String nome;
@@ -18,6 +19,7 @@ public class Loja {
   private transient JPanel demitirFuncionarioPanel;
   private transient JPanel consultarFuncionarioPanel;
   private transient JPanel listarFuncionariosPanel;
+  private transient JPanel cadastrarClientePanel;
 
 
   public Loja() {
@@ -238,6 +240,47 @@ public void adicionarCliente2(Cliente cliente){
       }
       if (count == 0) {
         System.out.println("Funcionário não encontrado!");
+      }
+    }
+  }
+  public void cadastrarClienteGUI(){
+    if (this.funcionarios.isEmpty()) {
+      mensagens = new JPanel();
+      mensagens.add(new JLabel("Não há funcionários cadastrados!"));
+      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+      return;
+    } else {
+      cadastrarClientePanel = new JPanel();
+      cadastrarClientePanel.setLayout(new BoxLayout(cadastrarClientePanel, BoxLayout.Y_AXIS));
+      cadastrarClientePanel.add(new JLabel("Digite a matrícula do funcionário que está cadastrando o cliente:"));
+      JTextField matricula = new JTextField();
+      cadastrarClientePanel.add(matricula);
+      int result = JOptionPane.showConfirmDialog(null, cadastrarClientePanel, "Cadastrar Cliente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      if (result == JOptionPane.OK_OPTION) {
+        for (Funcionario funcionario : this.funcionarios) {
+          if (funcionario.getMatricula().equals(matricula.getText())) {
+            mensagens = new JPanel();
+            mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
+            mensagens.add(new JLabel("Funcionário localizado!"));
+            mensagens.add(new JLabel("\nNome: " + funcionario.getNome()));
+            mensagens.add(new JLabel("Cargo: " + funcionario.getCargo()));
+            mensagens.add(new JLabel("Cadastrando cliente..."));
+            JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+            funcionario.adicionarClienteGUI(clientes);
+            return;
+          }
+        }
+        mensagens = new JPanel();
+        mensagens.add(new JLabel("Funcionário não encontrado!"));
+        JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        return;
+      } else {
+        /*
+        mensagens = new JPanel();
+        mensagens.add(new JLabel("Cancelado!"));
+        JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        */
+        return;
       }
     }
   }
