@@ -14,16 +14,8 @@ public class Loja {
   private Map<String, Cliente> clientesVIP = new HashMap<String, Cliente>();
   private transient Scanner input = new Scanner(System.in);
 
-  private transient JPanel cadastrarFuncionarioPanel;
-  private transient JPanel mensagens;
-  private transient JPanel demitirFuncionarioPanel;
-  private transient JPanel consultarFuncionarioPanel;
-  private transient JPanel listarFuncionariosPanel;
-  private transient JPanel cadastrarClientePanel;
-
   private transient JPanel Panel;
-
-
+  private transient JPanel mensagens;
 
   public Loja() {
     this.nome = "Template";
@@ -94,12 +86,12 @@ public class Loja {
       JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
       return;
     } else {
-      demitirFuncionarioPanel = new JPanel();
-      demitirFuncionarioPanel.setLayout(new BoxLayout(demitirFuncionarioPanel, BoxLayout.Y_AXIS));
-      demitirFuncionarioPanel.add(new JLabel("Por favor digite a matrícula do Funcionário:"));
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Por favor digite a matrícula do Funcionário:"));
       JTextField matriculaRemover = new JTextField();
-      demitirFuncionarioPanel.add(matriculaRemover);
-      int result = JOptionPane.showConfirmDialog(null, demitirFuncionarioPanel, "Demitir Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      Panel.add(matriculaRemover);
+      int result = JOptionPane.showConfirmDialog(null, Panel, "Demitir Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
       if (result == JOptionPane.OK_OPTION) {
         if(verificarFuncionario(matriculaRemover.getText())){
           for (Funcionario funcionario : this.funcionarios) {
@@ -253,12 +245,12 @@ public void adicionarCliente2(Cliente cliente){
       JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
       return;
     } else {
-      cadastrarClientePanel = new JPanel();
-      cadastrarClientePanel.setLayout(new BoxLayout(cadastrarClientePanel, BoxLayout.Y_AXIS));
-      cadastrarClientePanel.add(new JLabel("Digite a matrícula do funcionário que está cadastrando o cliente:"));
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Digite a matrícula do funcionário que está cadastrando o cliente:"));
       JTextField matricula = new JTextField();
-      cadastrarClientePanel.add(matricula);
-      int result = JOptionPane.showConfirmDialog(null, cadastrarClientePanel, "Cadastrar Cliente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      Panel.add(matricula);
+      int result = JOptionPane.showConfirmDialog(null, Panel, "Cadastrar Cliente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
       if (result == JOptionPane.OK_OPTION) {
         for (Funcionario funcionario : this.funcionarios) {
           if (funcionario.getMatricula().equals(matricula.getText())) {
@@ -308,18 +300,18 @@ public void adicionarCliente2(Cliente cliente){
   */
   // interface gráfica para cadastrarFuncionario()
   public void cadastrarFuncionarioGUI() {
-    cadastrarFuncionarioPanel = new JPanel();
-    cadastrarFuncionarioPanel.setLayout(new BoxLayout(cadastrarFuncionarioPanel, BoxLayout.Y_AXIS));
-    cadastrarFuncionarioPanel.add(new JLabel("Digite o nome do funcionário:"));
+    Panel = new JPanel();
+    Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+    Panel.add(new JLabel("Digite o nome do funcionário:"));
     JTextField nome = new JTextField();
-    cadastrarFuncionarioPanel.add(nome);
-    cadastrarFuncionarioPanel.add(new JLabel("Digite o CPF do funcionário:"));
+    Panel.add(nome);
+    Panel.add(new JLabel("Digite o CPF do funcionário:"));
     JTextField cpf = new JTextField();
-    cadastrarFuncionarioPanel.add(cpf);
-    cadastrarFuncionarioPanel.add(new JLabel("Digite o cargo do funcionário:"));
+    Panel.add(cpf);
+    Panel.add(new JLabel("Digite o cargo do funcionário:"));
     JTextField cargo = new JTextField();
-    cadastrarFuncionarioPanel.add(cargo);
-    int result = JOptionPane.showConfirmDialog(null, cadastrarFuncionarioPanel, "Cadastrar Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+    Panel.add(cargo);
+    int result = JOptionPane.showConfirmDialog(null, Panel, "Cadastrar Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
     if (result == JOptionPane.OK_OPTION) {
       Funcionario funcionario = new Funcionario(nome.getText(), cpf.getText(), cargo.getText());
       this.funcionarios.add(funcionario);
@@ -511,17 +503,17 @@ public void adicionarCliente2(Cliente cliente){
       JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
       return;
     } else {
-      listarFuncionariosPanel = new JPanel();
-      listarFuncionariosPanel.setLayout(new BoxLayout(listarFuncionariosPanel, BoxLayout.Y_AXIS));
-      listarFuncionariosPanel.add(new JLabel("Listando funcionários..."));
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Listando funcionários..."));
       for (Funcionario funcionario : this.funcionarios) {
-        listarFuncionariosPanel.add(new JLabel("\nNome: " + funcionario.getNome()));
-        listarFuncionariosPanel.add(new JLabel("Matrícula: " + funcionario.getMatricula()));
-        listarFuncionariosPanel.add(new JLabel("CPF: " + funcionario.getCpf()));
-        listarFuncionariosPanel.add(new JLabel("Cargo: " + funcionario.getCargo()));
-        listarFuncionariosPanel.add(new JLabel(" "));
+        Panel.add(new JLabel("\nNome: " + funcionario.getNome()));
+        Panel.add(new JLabel("Matrícula: " + funcionario.getMatricula()));
+        Panel.add(new JLabel("CPF: " + funcionario.getCpf()));
+        Panel.add(new JLabel("Cargo: " + funcionario.getCargo()));
+        Panel.add(new JLabel(" "));
       }
-      JOptionPane.showMessageDialog(null, listarFuncionariosPanel, "Listar Funcionários", JOptionPane.PLAIN_MESSAGE);
+      JOptionPane.showMessageDialog(null, Panel, "Listar Funcionários", JOptionPane.PLAIN_MESSAGE);
     }
   }
 
@@ -564,12 +556,12 @@ public void adicionarCliente2(Cliente cliente){
       JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
       return;
     } else {
-      consultarFuncionarioPanel = new JPanel();
-      consultarFuncionarioPanel.setLayout(new BoxLayout(consultarFuncionarioPanel, BoxLayout.Y_AXIS));
-      consultarFuncionarioPanel.add(new JLabel("Digite o CPF do cliente que deseja encontrar:"));
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Digite o CPF do cliente que deseja encontrar:"));
       JTextField cpfCliente = new JTextField();
-      consultarFuncionarioPanel.add(cpfCliente);
-      int result = JOptionPane.showConfirmDialog(null, consultarFuncionarioPanel, "Consultar Cliente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      Panel.add(cpfCliente);
+      int result = JOptionPane.showConfirmDialog(null, Panel, "Consultar Cliente", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
       if (result == JOptionPane.OK_OPTION) {
         if(verificarCliente(cpfCliente.getText())){
           for (Cliente cliente : this.clientes) {
@@ -673,12 +665,12 @@ public void adicionarCliente2(Cliente cliente){
       JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
       return;
     } else {
-      consultarFuncionarioPanel = new JPanel();
-      consultarFuncionarioPanel.setLayout(new BoxLayout(consultarFuncionarioPanel, BoxLayout.Y_AXIS));
-      consultarFuncionarioPanel.add(new JLabel("Digite a matrícula do Funcionário que deseja encontrar:"));
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Digite a matrícula do Funcionário que deseja encontrar:"));
       JTextField matriculaConsultar = new JTextField();
-      consultarFuncionarioPanel.add(matriculaConsultar);
-      int result = JOptionPane.showConfirmDialog(null, consultarFuncionarioPanel, "Consultar Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      Panel.add(matriculaConsultar);
+      int result = JOptionPane.showConfirmDialog(null, Panel, "Consultar Funcionário", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
       if (result == JOptionPane.OK_OPTION) {
         for (Funcionario funcionario : this.funcionarios) {
           if (funcionario.getMatricula().equals(matriculaConsultar.getText())) {
