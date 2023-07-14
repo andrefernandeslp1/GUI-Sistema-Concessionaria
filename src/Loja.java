@@ -525,6 +525,7 @@ public void adicionarCliente2(Cliente cliente){
     }
   }
 
+  /*
   public void consultarCliente() {
     System.out.println("\nConsultando cliente...");
     if (this.clientes.isEmpty()) {
@@ -555,6 +556,7 @@ public void adicionarCliente2(Cliente cliente){
 
     }
   }
+  */
   public void consultarClienteGUI(){
     if (this.clientes.isEmpty()) {
       mensagens = new JPanel();
