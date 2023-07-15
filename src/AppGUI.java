@@ -157,6 +157,7 @@ public class AppGUI extends JFrame {
         JButton listVIPClientsButton = new JButton("Listar Clientes VIP");
         listVIPClientsButton.addActionListener(e -> {
             // Lógica para listar clientes VIP
+            loja.listarClientesVIPGUI();
         });
 
         JButton backButton = new JButton("Voltar");
@@ -180,11 +181,13 @@ public class AppGUI extends JFrame {
         JButton stockButton = new JButton("Abastecer Estoque (Fábrica)");
         stockButton.addActionListener(e -> {
             // Lógica para abastecer estoque
+            loja.cadastrarCarroGUI();
         });
 
         JButton sellButton = new JButton("Vender Carro");
         sellButton.addActionListener(e -> {
             // Lógica para vender carro
+            loja.venderCarroGUI();
         });
 
         JButton returnButton = new JButton("Devolver Carro (Fábrica)");

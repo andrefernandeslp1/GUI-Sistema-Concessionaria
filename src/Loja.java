@@ -188,7 +188,51 @@ public class Loja {
       System.out.println("Carro não encontrado!");
       return;
     }
+  }
+  public void venderCarroGUI(){
+    if (this.carros.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há carros em Estoque!");
+      return;
+    }
+    if (this.clientes.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há clientes cadastrados!");
+      return;
+    }
+    Panel = new JPanel();
+    Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+    Panel.add(new JLabel("Vendendo carro..."));
+    Panel.add(new JLabel("Digite o CPF do cliente:"));
+    JTextField cpf = new JTextField();
+    Panel.add(cpf);
+    Panel.add(new JLabel("Digite o chassi do carro:"));
+    JTextField chassi = new JTextField();
+    Panel.add(chassi);
+    int result = JOptionPane.showConfirmDialog(null, Panel, "Vender Carro", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+    if (result == JOptionPane.OK_OPTION) {
+      if(verificarCliente(cpf.getText())){
+        for (Cliente cliente : this.clientes) {
+          if (cliente.getCpf().equals(cpf.getText())) {
+            if(verificarChassi(chassi.getText())){
+              for (Carro carro : this.carros) {
+                if (carro.getChassi().equals(chassi.getText())) {
+                  cliente.addCarroComprado(carro);
+                  this.carros.remove(carro);
+                  this.caixa += carro.getPreco();
+                  JOptionPane.showMessageDialog(null, "Carro vendido com sucesso!");
+                  adicionarClienteVIP(cliente);
+                  JOptionPane.showMessageDialog(null, "Cliente adicionado ao programa de fidelidade Clientes VIP!");
+                  return;
+                }
+              }
+            } else {
 
+              JOptionPane.showMessageDialog(null, "Carro não encontrado!");
+              return;
+            }
+          }
+        }
+      }
+    }
   }
 
   public boolean verificarCliente(String cpf) {
@@ -363,6 +407,47 @@ public void adicionarCliente2(Cliente cliente){
     }
     System.out.println("\nCarro(s) cadastrado(s) com sucesso!");
   }
+  public void cadastrarCarroGUI(){
+    Panel = new JPanel();
+    Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+    Panel.add(new JLabel("Digite a marca do carro:"));
+    JTextField marca = new JTextField();
+    Panel.add(marca);
+    Panel.add(new JLabel("Digite o modelo do carro:"));
+    JTextField modelo = new JTextField();
+    Panel.add(modelo);
+    Panel.add(new JLabel("Digite a cor do carro:"));
+    JTextField cor = new JTextField();
+    Panel.add(cor);
+    Panel.add(new JLabel("Digite o ano do carro:"));
+    JTextField ano = new JTextField();
+    Panel.add(ano);
+    Panel.add(new JLabel("Digite o tipo de combustível do carro:"));
+    JTextField combustivel = new JTextField();
+    Panel.add(combustivel);
+    Panel.add(new JLabel("Digite o preço do carro:"));
+    JTextField preco = new JTextField();
+    Panel.add(preco);
+    Panel.add(new JLabel("Digite a quantidade de carros que deseja inserir no Estoque:"));
+    JTextField quantidade = new JTextField();
+    Panel.add(quantidade);
+    int result = JOptionPane.showConfirmDialog(null, Panel, "Cadastrar Carro", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+    if (result == JOptionPane.OK_OPTION) {
+      for (int i = 0; i < Integer.parseInt(quantidade.getText()); i++) {
+        String chassi = geradorDeChassi();
+        System.out.println("Chassi gerado: " + chassi);
+        Carro carro = new Carro(marca.getText(), modelo.getText(), cor.getText(), Integer.parseInt(ano.getText()), chassi, combustivel.getText(), Double.parseDouble(preco.getText()));
+        this.carros.add(carro);
+      }
+      /*
+      mensagens = new JPanel();
+      mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
+      mensagens.add(new JLabel("Carro(s) cadastrado(s) com sucesso!"));
+      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+      */
+      JOptionPane.showMessageDialog(null, "Carro(s) cadastrado(s) com sucesso!");
+    }
+  }
 
   public String geradorDeChassi() {
     String chassi = "";
@@ -380,6 +465,7 @@ public void adicionarCliente2(Cliente cliente){
   }
 
   // listar clientes vip
+  /*
   public void listarClientesVIP() {
     if (this.clientesVIP.isEmpty()) {
       System.out.println("\nNão há clientes VIP cadastrados!");
@@ -393,6 +479,26 @@ public void adicionarCliente2(Cliente cliente){
         System.out.println("Carros comprados: ");
         listarCarrosCliente(entry.getValue());
       }
+    }
+  }
+  */
+  public void listarClientesVIPGUI(){
+    if (this.clientesVIP.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há clientes VIP cadastrados!");
+      return;
+    } else {
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Listando clientes VIP..."));
+      for (Map.Entry<String, Cliente> entry : this.clientesVIP.entrySet()) {
+        Panel.add(new JLabel("\nNome: " + entry.getValue().getNome()));
+        Panel.add(new JLabel("CPF: " + entry.getValue().getCpf()));
+        Panel.add(new JLabel("Cadastro: " + entry.getValue().getCadastro()));
+        Panel.add(new JLabel("Carros comprados: "));
+        Panel.add(new JLabel(listarCarrosClienteGUI(entry.getValue())));
+        Panel.add(new JLabel(" "));
+      }
+      JOptionPane.showMessageDialog(null, Panel, "Listar Clientes VIP", JOptionPane.PLAIN_MESSAGE);
     }
   }
 
@@ -622,13 +728,13 @@ public void adicionarCliente2(Cliente cliente){
     } else {
       String carros = "\nEste cliente possui os seguintes carros comprados:";
       for (Carro carro : cliente.getCarrosComprados()) {
-        carros += "\nMarca: " + carro.getMarca();
-        carros += "\nModelo: " + carro.getModelo();
-        carros += "\nCor: " + carro.getCor();
-        carros += "\nAno: " + carro.getAno();
-        carros += "\nChassi: " + carro.getChassi();
-        carros += "\nCombustível: " + carro.getCombustivel();
-        carros += "\nPreço: " + carro.getPreco();
+        carros += "\n Marca: " + carro.getMarca();
+        carros += "\n Modelo: " + carro.getModelo();
+        carros += "\n Cor: " + carro.getCor();
+        carros += "\n Ano: " + carro.getAno();
+        carros += "\n Chassi: " + carro.getChassi();
+        carros += "\n Combustível: " + carro.getCombustivel();
+        carros += "\n Preço: " + carro.getPreco();
         //System.out.println("");
       }
       return carros;

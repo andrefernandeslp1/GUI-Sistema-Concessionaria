@@ -1,11 +1,58 @@
 {
   "nome": "Template",
-  "caixa": 0.0,
-  "carros": [],
+  "caixa": 150000.0,
+  "carros": [
+    {
+      "marca": "fiat",
+      "modelo": "pulse",
+      "cor": "azul",
+      "ano": 2023,
+      "chassi": "KQM33915193997433",
+      "combustivel": "flex",
+      "preco": 150000.0
+    },
+    {
+      "marca": "fiat",
+      "modelo": "pulse",
+      "cor": "azul",
+      "ano": 2023,
+      "chassi": "XVE80170165620360",
+      "combustivel": "flex",
+      "preco": 150000.0
+    },
+    {
+      "marca": "fiat",
+      "modelo": "pulse",
+      "cor": "azul",
+      "ano": 2023,
+      "chassi": "ATZ24804414261370",
+      "combustivel": "flex",
+      "preco": 150000.0
+    },
+    {
+      "marca": "fiat",
+      "modelo": "pulse",
+      "cor": "azul",
+      "ano": 2023,
+      "chassi": "KVD60161452431104",
+      "combustivel": "flex",
+      "preco": 150000.0
+    }
+  ],
   "clientes": [
     {
       "cadastro": "Fer111",
-      "carrosComprados": [],
+      "carrosComprados": [
+        {
+          "marca": "fiat",
+          "modelo": "pulse",
+          "cor": "azul",
+          "ano": 2023,
+          "chassi": "JKL75347491907413",
+          "combustivel": "flex",
+          "preco": 150000.0
+        }
+      ],
       "nome": "Fernandes",
       "cpf": "11122233344"
     },
@@ -42,5 +89,22 @@
       "cpf": "123456789"
     }
   ],
-  "clientesVIP": {}
+  "clientesVIP": {
+    "11122233344": {
+      "cadastro": "Fer111",
+      "carrosComprados": [
+        {
+          "marca": "fiat",
+          "modelo": "pulse",
+          "cor": "azul",
+          "ano": 2023,
+          "chassi": "JKL75347491907413",
+          "combustivel": "flex",
+          "preco": 150000.0
+        }
+      ],
+      "nome": "Fernandes",
+      "cpf": "11122233344"
+    }
+  }
 }
