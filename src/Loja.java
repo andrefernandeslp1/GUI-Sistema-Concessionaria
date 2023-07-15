@@ -12,6 +12,7 @@ public class Loja {
   private ArrayList<Cliente> clientes;
   private ArrayList<Funcionario> funcionarios;
   private Map<String, Cliente> clientesVIP = new HashMap<String, Cliente>();
+
   private transient Scanner input = new Scanner(System.in);
 
   private transient JPanel Panel;
