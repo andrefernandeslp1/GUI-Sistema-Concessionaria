@@ -193,6 +193,7 @@ public class AppGUI extends JFrame {
         JButton returnButton = new JButton("Devolver Carro (Fábrica)");
         returnButton.addActionListener(e -> {
             // Lógica para devolver carro à fábrica
+
         });
 
         JButton backButton = new JButton("Voltar");
@@ -212,10 +213,17 @@ public class AppGUI extends JFrame {
         JLabel titleLabel = new JLabel("Estoque");
         titleLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16));
 
+        JButton consultarCarroButton = new JButton("Consultar Carro");
+        consultarCarroButton.addActionListener(e -> {
+            // Lógica para consultar carro
+            loja.consultarCarroGUI();
+        });
+
         JButton backButton = new JButton("Voltar");
         backButton.addActionListener(e -> showInitialPanel());
 
         salesPanel.add(titleLabel);
+        salesPanel.add(consultarCarroButton);
         salesPanel.add(backButton);
     }
 

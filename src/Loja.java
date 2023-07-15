@@ -607,7 +607,6 @@ public void adicionarCliente2(Cliente cliente){
       }
       Panel.add(scrollPane);
       JOptionPane.showMessageDialog(null, Panel, "Listar Clientes", JOptionPane.PLAIN_MESSAGE);
-
     }
   }
 
@@ -866,6 +865,62 @@ public void adicionarCliente2(Cliente cliente){
         System.out.println("\nModelo não encontrado!");
       }
       //System.out.println("Carro não encontrado!");
+    }
+  }
+  public void consultarCarroGUI(){
+    int count = 0;
+    if (this.carros.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há carros cadastrados!");
+      return;
+    } else {
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Digite o modelo do carro que deseja encontrar:"));
+      JTextField modeloConsultar = new JTextField();
+      Panel.add(modeloConsultar);
+      int result = JOptionPane.showConfirmDialog(null, Panel, "Consultar Carro", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      if (result == JOptionPane.OK_OPTION) {
+        for (Carro carro : this.carros) {
+          if (carro.getModelo().equals(modeloConsultar.getText())) {
+            mensagens = new JPanel();
+            mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
+            mensagens.add(new JLabel("Carro localizado!"));
+            mensagens.add(new JLabel("\nMarca: " + carro.getMarca()));
+            mensagens.add(new JLabel("Modelo: " + carro.getModelo()));
+            mensagens.add(new JLabel("Cor: " + carro.getCor()));
+            mensagens.add(new JLabel("Ano: " + carro.getAno()));
+            //mensagens.add(new JLabel("Chassi: " + carro.getChassi()));
+            mensagens.add(new JLabel("Combustível: " + carro.getCombustivel()));
+            mensagens.add(new JLabel("Preço: " + carro.getPreco()));
+            count++;
+            mensagens.add(new JLabel("Total de carros deste Modelo encontrados: " + count));
+          }
+        }
+
+        if (count > 0) {
+          /*
+          mensagens = new JPanel();
+          mensagens.add(new JLabel("Total de carros deste Modelo encontrados: " + count));
+          JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+          */
+          JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+
+        } else {
+          /*
+          mensagens = new JPanel();
+          mensagens.add(new JLabel("Modelo não encontrado!"));
+          JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+          */
+          JOptionPane.showMessageDialog(null, "Modelo não encontrado!");
+        }
+      } else {
+        /*
+        mensagens = new JPanel();
+        mensagens.add(new JLabel("Cancelado!"));
+        JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        */
+        return;
+      }
     }
   }
 
