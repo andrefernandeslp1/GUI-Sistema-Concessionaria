@@ -559,6 +559,7 @@ public void adicionarCliente2(Cliente cliente){
     }
   }
   */
+  /*
   public void listarClientesGUI(){
     if (this.clientes.isEmpty()) {
       //mensagens = new JPanel();
@@ -582,6 +583,31 @@ public void adicionarCliente2(Cliente cliente){
         Panel.add(new JLabel(" "));
       }
       JOptionPane.showMessageDialog(null, Panel, "Listar Clientes", JOptionPane.PLAIN_MESSAGE);
+    }
+  }
+  */
+  public void listarClientesGUI(){
+    if (this.clientes.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há clientes cadastrados!");
+      return;
+    } else {
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Listando clientes..."));
+      JTextArea textArea = new JTextArea(20, 30);
+      textArea.setEditable(false);
+      JScrollPane scrollPane = new JScrollPane(textArea);
+      for (Cliente cliente : this.clientes) {
+        textArea.append("Nome: " + cliente.getNome() + "\n");
+        textArea.append("CPF: " + cliente.getCpf() + "\n");
+        textArea.append("Cadastro: " + cliente.getCadastro() + "\n");
+        textArea.append(verificarClienteVIPGUI(cliente.getCpf()) + "\n");
+        textArea.append(listarCarrosClienteGUI(cliente) + "\n");
+        textArea.append(" ");
+      }
+      Panel.add(scrollPane);
+      JOptionPane.showMessageDialog(null, Panel, "Listar Clientes", JOptionPane.PLAIN_MESSAGE);
+
     }
   }
 
@@ -723,18 +749,22 @@ public void adicionarCliente2(Cliente cliente){
 
   public String listarCarrosClienteGUI(Cliente cliente){
     if (cliente.getCarrosComprados().isEmpty()) {
-      return "\nEste cliente não possui carros comprados!";
+      return "Este cliente não possui carros comprados!\n";
       //System.out.println("");
     } else {
-      String carros = "\nEste cliente possui os seguintes carros comprados:";
+      int count = 1;
+      String carros = "Este cliente possui os seguintes carros comprados:";
       for (Carro carro : cliente.getCarrosComprados()) {
-        carros += "\n Marca: " + carro.getMarca();
-        carros += "\n Modelo: " + carro.getModelo();
-        carros += "\n Cor: " + carro.getCor();
-        carros += "\n Ano: " + carro.getAno();
-        carros += "\n Chassi: " + carro.getChassi();
-        carros += "\n Combustível: " + carro.getCombustivel();
-        carros += "\n Preço: " + carro.getPreco();
+        carros += "\n   " + count + ".";
+        carros += "\n   Marca: " + carro.getMarca();
+        carros += "\n   Modelo: " + carro.getModelo();
+        carros += "\n   Cor: " + carro.getCor();
+        carros += "\n   Ano: " + carro.getAno();
+        carros += "\n   Chassi: " + carro.getChassi();
+        carros += "\n   Combustível: " + carro.getCombustivel();
+        carros += "\n   Preço: " + carro.getPreco();
+        carros += "\n ";
+        count++;
         //System.out.println("");
       }
       return carros;
