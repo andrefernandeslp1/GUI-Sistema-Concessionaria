@@ -137,6 +137,43 @@ public class Loja {
 
   }
 
+  public void devolverCarro() {
+    if (this.clientes.isEmpty()) {
+      System.out.println("\nNão há clientes cadastrados!");
+      return;
+    }
+    System.out.println("\nDevolvendo carro...");
+    System.out.println("Digite o CPF do cliente:");
+    String cpf = input.nextLine();
+    if(verificarCliente(cpf)){
+      System.out.println("Cliente localizado!");
+    } else {
+      System.out.println("Cliente não encontrado!");
+      return;
+    }
+    System.out.println("Digite o chassi do carro:");
+    String chassi = input.nextLine();
+    if(verificarChassi(chassi)){
+      System.out.println("Carro localizado!");
+      for (Cliente cliente : this.clientes) {
+        if (cliente.getCpf().equals(cpf)) {
+          for (Carro carro : cliente.getCarrosComprados()) {
+            if (carro.getChassi().equals(chassi)) {
+              cliente.removeCarroComprado(carro);
+              this.carros.add(carro);
+              this.caixa -= carro.getPreco();
+              System.out.println("Carro devolvido com sucesso!");
+              return;
+            }
+          }
+        }
+      }
+    } else {
+      System.out.println("Carro não encontrado!");
+      return;
+    }
+  }
+
   public boolean verificarCliente(String cpf) {
     for (Cliente cliente : this.clientes) {
       if (cliente.getCpf().equals(cpf)) {

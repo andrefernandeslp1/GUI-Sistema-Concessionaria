@@ -156,8 +156,8 @@ public class App {
             System.out.println("  Escolha uma opção:");
             System.out.println("  1 - Abastecer Estoque (Fábrica)");
             System.out.println("  2 - Vender Carro");
-            System.out.println("  ? - Devolver Carro (Fábrica) ***IMPLEMENTAR***");
-            System.out.println("  3 - Voltar");
+            System.out.println("  3 - Devolver Carro (Fábrica) ***IMPLEMENTAR***");
+            System.out.println("  4 - Voltar");
 
             try {
               opcao2 = input.nextInt();
@@ -179,7 +179,12 @@ public class App {
                 loja.venderCarro();
                 break;
 
-              case 3: // sair
+              case 3: // devolver carro
+                System.out.println("Devolver Carro");
+                loja.devolverCarro();
+                break;  
+
+              case 4: // sair
                 System.out.println("Saindo...");
                 break;
 

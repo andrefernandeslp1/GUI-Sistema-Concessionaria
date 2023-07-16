@@ -193,7 +193,7 @@ public class AppGUI extends JFrame {
         JButton returnButton = new JButton("Devolver Carro (Fábrica)");
         returnButton.addActionListener(e -> {
             // Lógica para devolver carro à fábrica
-
+            loja.devolverCarroGUI();
         });
 
         JButton backButton = new JButton("Voltar");
