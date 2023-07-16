@@ -196,8 +196,8 @@ public class App {
           System.out.println("  Escolha uma opção:");
           System.out.println("  1 - Consultar Carro");
           System.out.println("  2 - Listar Carros");
-          System.out.println("  ? - Zerar Estoque ***IMPLEMENTAR***");
-          System.out.println("  3 - Voltar");
+          System.out.println("  3 - Zerar Estoque");
+          System.out.println("  4 - Voltar");
 
           try {
             opcao2 = input.nextInt();
@@ -218,8 +218,12 @@ public class App {
               System.out.println("Listar Carros");
               loja.listarCarros();
               break;
+            case 3: // zerar estoque
+              System.out.println("Zerar Estoque");
+              loja.zerarEstoque();
+              break;
 
-            case 3: // sair
+            case 4: // sair
               System.out.println("Saindo...");
               break;
 

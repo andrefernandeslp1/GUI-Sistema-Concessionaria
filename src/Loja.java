@@ -539,6 +539,39 @@ public void adicionarCliente2(Cliente cliente){
 
   }
 
+  public void zerarEstoque() {
+    this.carros.clear();
+    System.out.println("\nEstoque zerado!");
+  }
+
+  public void zerarEstoqueGUI() {
+    this.carros.clear();
+    JOptionPane.showMessageDialog(null, "Estoque zerado!");
+  }
+
+  public void listarCarrosGUI(){
+    if (this.carros.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há carros cadastrados!");
+      return;
+    } else {
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Listando carros..."));
+      for (Carro carro : this.carros) {
+        Panel.add(new JLabel("\nMarca: " + carro.getMarca()));
+        Panel.add(new JLabel("Modelo: " + carro.getModelo()));
+        Panel.add(new JLabel("Cor: " + carro.getCor()));
+        Panel.add(new JLabel("Ano: " + carro.getAno()));
+        Panel.add(new JLabel("Chassi: " + carro.getChassi()));
+        Panel.add(new JLabel("Combustível: " + carro.getCombustivel()));
+        Panel.add(new JLabel("Preço: " + carro.getPreco()));
+        Panel.add(new JLabel(" "));
+      }
+      Panel.add(new JLabel("\nTotal de carros em Estoque: " + this.carros.size()));
+      JOptionPane.showMessageDialog(null, Panel, "Listar Carros", JOptionPane.PLAIN_MESSAGE);
+    }
+  }
+
   /*
   public void listarClientes() {
     if (this.clientes.isEmpty()) {

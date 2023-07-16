@@ -296,9 +296,13 @@ public void adicionarCliente2(Cliente cliente){
       }
       System.out.println("\nTotal de carros em Estoque: " + this.carros.size());
     }
-
+  
   }
 
+  public void zerarEstoque() {
+    this.carros.clear();
+    System.out.println("\nEstoque zerado!");
+  }  
   public void listarClientes() {
     if (this.clientes.isEmpty()) {
       System.out.println("\nNão há clientes cadastrados!");

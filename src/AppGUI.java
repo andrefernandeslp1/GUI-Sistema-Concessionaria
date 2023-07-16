@@ -219,11 +219,25 @@ public class AppGUI extends JFrame {
             loja.consultarCarroGUI();
         });
 
+        JButton listarCarrosButton = new JButton("Listar Carros");
+        listarCarrosButton.addActionListener(e -> {
+            // Lógica para listar carros
+            loja.listarCarrosGUI();
+        });
+
+        JButton zerarEstoqueButton = new JButton("Zerar Estoque");
+        zerarEstoqueButton.addActionListener(e -> {
+            // Lógica para zerar estoque
+            loja.zerarEstoqueGUI();
+        });
+
         JButton backButton = new JButton("Voltar");
         backButton.addActionListener(e -> showInitialPanel());
 
         salesPanel.add(titleLabel);
         salesPanel.add(consultarCarroButton);
+        salesPanel.add(listarCarrosButton);
+        salesPanel.add(zerarEstoqueButton);
         salesPanel.add(backButton);
     }
 
