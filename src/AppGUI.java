@@ -36,7 +36,7 @@ public class AppGUI extends JFrame {
         createNovaLojaPanel();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 500);
+        setSize(600, 400);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -178,7 +178,7 @@ public class AppGUI extends JFrame {
         JLabel titleLabel = new JLabel("Abastecimento e Venda");
         titleLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16));
 
-        JButton stockButton = new JButton("Abastecer Estoque (Fábrica)");
+        JButton stockButton = new JButton("Abastecer Estoque (de Fábrica)");
         stockButton.addActionListener(e -> {
             // Lógica para abastecer estoque
             loja.cadastrarCarroGUI();
@@ -190,7 +190,7 @@ public class AppGUI extends JFrame {
             loja.venderCarroGUI();
         });
 
-        JButton returnButton = new JButton("Devolver Carro (Fábrica)");
+        JButton returnButton = new JButton("Comprar Carro (do Cliente)");
         returnButton.addActionListener(e -> {
             // Lógica para devolver carro à fábrica
             loja.devolverCarroGUI();

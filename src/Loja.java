@@ -294,6 +294,10 @@ public class Loja {
                 this.carros.add(carro);
                 this.caixa -= carro.getPreco();
                 JOptionPane.showMessageDialog(null, "Carro devolvido com sucesso!");
+                if (cliente.getCarrosComprados().isEmpty()) {
+                  this.clientesVIP.remove(cliente.getCpf());
+                  JOptionPane.showMessageDialog(null, "Cliente removido do programa de fidelidade Clientes VIP!");
+                }
                 return;
               }
             }
@@ -613,13 +617,27 @@ public void adicionarCliente2(Cliente cliente){
   }
 
   public void zerarEstoque() {
+
     this.carros.clear();
     System.out.println("\nEstoque zerado!");
   }
 
   public void zerarEstoqueGUI() {
-    this.carros.clear();
-    JOptionPane.showMessageDialog(null, "Estoque zerado!");
+    if (this.carros.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há carros cadastrados!");
+      return;
+    }
+    //pedir confirmação antes de zerar o estoque
+    Panel = new JPanel();
+    Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+    Panel.add(new JLabel("Tem certeza que deseja zerar o estoque?"));
+    int result = JOptionPane.showConfirmDialog(null, Panel, "Zerar Estoque", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+    if (result == JOptionPane.OK_OPTION) {
+      this.carros.clear();
+      JOptionPane.showMessageDialog(null, "Estoque zerado!");
+    }
+    //this.carros.clear();
+    //JOptionPane.showMessageDialog(null, "Estoque zerado!");
   }
 
   public void listarCarrosGUI(){

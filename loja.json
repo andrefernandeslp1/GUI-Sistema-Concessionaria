@@ -1,73 +1,68 @@
 {
-  "nome": "Template",
-  "caixa": 0.0,
+  "nome": "Loja do André",
+  "caixa": 1000000.0,
   "carros": [
     {
-      "marca": "fiat",
-      "modelo": "pulse",
-      "cor": "azul",
-      "ano": 2023,
-      "chassi": "JKL75347491907413",
-      "combustivel": "flex",
-      "preco": 150000.0
+      "marca": "VW",
+      "modelo": "POLO",
+      "cor": "BRANCO",
+      "ano": 2010,
+      "chassi": "JAT89607822592096",
+      "combustivel": "FLEX",
+      "preco": 50000.0
+    },
+    {
+      "marca": "VW",
+      "modelo": "POLO",
+      "cor": "BRANCO",
+      "ano": 2010,
+      "chassi": "AZL90176604683401",
+      "combustivel": "FLEX",
+      "preco": 50000.0
+    },
+    {
+      "marca": "VW",
+      "modelo": "POLO",
+      "cor": "BRANCO",
+      "ano": 2010,
+      "chassi": "KFO87378481111154",
+      "combustivel": "FLEX",
+      "preco": 50000.0
+    },
+    {
+      "marca": "VW",
+      "modelo": "POLO",
+      "cor": "BRANCO",
+      "ano": 2010,
+      "chassi": "DWY96767049306726",
+      "combustivel": "FLEX",
+      "preco": 50000.0
+    },
+    {
+      "marca": "VW",
+      "modelo": "POLO",
+      "cor": "BRANCO",
+      "ano": 2010,
+      "chassi": "VVV51729109312190",
+      "combustivel": "FLEX",
+      "preco": 50000.0
     }
   ],
   "clientes": [
     {
-      "cadastro": "Fer111",
+      "cadastro": "JOA000",
       "carrosComprados": [],
-      "nome": "Fernandes",
-      "cpf": "11122233344"
-    },
-    {
-      "cadastro": "Ric222",
-      "carrosComprados": [],
-      "nome": "Ricardo",
-      "cpf": "22233344455"
-    },
-    {
-      "cadastro": "And000",
-      "carrosComprados": [],
-      "nome": "Andre",
+      "nome": "JOAO",
       "cpf": "00011122233"
-    },
-    {
-      "cadastro": "Mar333",
-      "carrosComprados": [],
-      "nome": "Maria",
-      "cpf": "33344455566"
     }
   ],
   "funcionarios": [
     {
-      "matricula": "123asg",
-      "cargo": "asg",
-      "nome": "joao",
-      "cpf": "1234567890"
-    },
-    {
-      "matricula": "123Pin",
-      "cargo": "Pintor",
-      "nome": "Joaquim",
+      "matricula": "123VEN",
+      "cargo": "VENDEDOR",
+      "nome": "PEDRO",
       "cpf": "123456789"
     }
   ],
-  "clientesVIP": {
-    "11122233344": {
-      "cadastro": "Fer111",
-      "carrosComprados": [
-        {
-          "marca": "fiat",
-          "modelo": "pulse",
-          "cor": "azul",
-          "ano": 2023,
-          "chassi": "JKL75347491907413",
-          "combustivel": "flex",
-          "preco": 150000.0
-        }
-      ],
-      "nome": "Fernandes",
-      "cpf": "11122233344"
-    }
-  }
+  "clientesVIP": {}
 }
