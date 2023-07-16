@@ -82,9 +82,7 @@ public class Loja {
   */
   public void demitirFuncionarioGUI(){
     if (this.funcionarios.isEmpty()) {
-      mensagens = new JPanel();
-      mensagens.add(new JLabel("Não há funcionários cadastrados!"));
-      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
+      JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!");
       return;
     } else {
       Panel = new JPanel();
@@ -606,6 +604,7 @@ public void adicionarCliente2(Cliente cliente){
         textArea.append(listarCarrosClienteGUI(cliente) + "\n");
         textArea.append(" ");
       }
+      textArea.setCaretPosition(0);// seta o scroll pro topo
       Panel.add(scrollPane);
       JOptionPane.showMessageDialog(null, Panel, "Listar Clientes", JOptionPane.PLAIN_MESSAGE);
     }
