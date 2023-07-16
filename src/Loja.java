@@ -250,13 +250,11 @@ public class Loja {
     }
     System.out.println("Digite o chassi do carro:");
     String chassi = input.nextLine();
-    if(verificarChassi(chassi)){
-      System.out.println("Carro localizado!");
       for (Cliente cliente : this.clientes) {
         if (cliente.getCpf().equals(cpf)) {
           for (Carro carro : cliente.getCarrosComprados()) {
             if (carro.getChassi().equals(chassi)) {
-              this.clientes.remove(carro);
+              cliente.removeCarroComprado(carro);
               this.carros.add(carro);
               this.caixa -= carro.getPreco();
               System.out.println("Carro devolvido com sucesso!");
@@ -264,11 +262,11 @@ public class Loja {
             }
           }
         }
+        else {
+         System.out.println("Carro não encontrado!");
+         return;
+       }
       }
-    } else {
-      System.out.println("Carro não encontrado!");
-      return;
-    }
   }
 
   public void devolverCarroGUI(){
@@ -290,21 +288,20 @@ public class Loja {
       if(verificarCliente(cpf.getText())){
         for (Cliente cliente : this.clientes) {
           if (cliente.getCpf().equals(cpf.getText())) {
-            if(verificarChassi(chassi.getText())){
-              for (Carro carro : cliente.getCarrosComprados()) {
-                if (carro.getChassi().equals(chassi.getText())) {
-                  this.clientes.remove(carro);                  
-                  this.carros.add(carro);
-                  this.caixa -= carro.getPreco();
-                  JOptionPane.showMessageDialog(null, "Carro devolvido com sucesso!");
-                  return;
-                }
+            for (Carro carro : cliente.getCarrosComprados()) {
+              if (carro.getChassi().equals(chassi.getText())) {
+                cliente.removeCarroComprado(carro);
+                this.carros.add(carro);
+                this.caixa -= carro.getPreco();
+                JOptionPane.showMessageDialog(null, "Carro devolvido com sucesso!");
+                return;
               }
-            } else {
-              JOptionPane.showMessageDialog(null, "Carro não encontrado!");
-              return;
             }
           }
+          else {
+           JOptionPane.showMessageDialog(null, "Carro não encontrado!");
+           return;
+         }
         }
       }
     }

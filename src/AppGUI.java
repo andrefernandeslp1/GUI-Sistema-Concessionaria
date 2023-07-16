@@ -36,7 +36,7 @@ public class AppGUI extends JFrame {
         createNovaLojaPanel();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
+        setSize(800, 500);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);

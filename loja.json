@@ -1,21 +1,21 @@
 {
   "nome": "Template",
-  "caixa": 150000.0,
-  "carros": [],
+  "caixa": 0.0,
+  "carros": [
+    {
+      "marca": "fiat",
+      "modelo": "pulse",
+      "cor": "azul",
+      "ano": 2023,
+      "chassi": "JKL75347491907413",
+      "combustivel": "flex",
+      "preco": 150000.0
+    }
+  ],
   "clientes": [
     {
       "cadastro": "Fer111",
-      "carrosComprados": [
-        {
-          "marca": "fiat",
-          "modelo": "pulse",
-          "cor": "azul",
-          "ano": 2023,
-          "chassi": "JKL75347491907413",
-          "combustivel": "flex",
-          "preco": 150000.0
-        }
-      ],
+      "carrosComprados": [],
       "nome": "Fernandes",
       "cpf": "11122233344"
     },

@@ -153,8 +153,6 @@ public class Loja {
     }
     System.out.println("Digite o chassi do carro:");
     String chassi = input.nextLine();
-    if(verificarChassi(chassi)){
-      System.out.println("Carro localizado!");
       for (Cliente cliente : this.clientes) {
         if (cliente.getCpf().equals(cpf)) {
           for (Carro carro : cliente.getCarrosComprados()) {
@@ -167,11 +165,11 @@ public class Loja {
             }
           }
         }
+        else {
+         System.out.println("Carro não encontrado!");
+         return;
+       }
       }
-    } else {
-      System.out.println("Carro não encontrado!");
-      return;
-    }
   }
 
   public boolean verificarCliente(String cpf) {

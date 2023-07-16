@@ -23,7 +23,8 @@ public class Cliente extends Pessoa {
   //setters
   public void setCadastro(String nome, String cpf){ this.cadastro = gerarNumeroDeCadastro(nome, cpf); }
   public void addCarroComprado(Carro carro){ this.carrosComprados.add(carro); }
-
+  public void removeCarroComprado(Carro carro){ this.carrosComprados.remove(carro); }
+  
   //metodos
   public String gerarNumeroDeCadastro(String nome, String cpf) {
     String cadastro = nome.substring(0, 3) + cpf.substring(0, 3);
