@@ -16,13 +16,13 @@
 
 Este projeto foi desenvolvido para a disciplina de Linguagem de Programação II, como meio de avaliar os conhecimentos adquiridos pelo aluno ao longo da disciplina.
 
-Esta etapa do projeto consiste de uma entrega parcial do projeto, com apresentação do conceito e funcionalidades implementadas até o momento.
+Esta etapa consiste de na entrega final do projeto, na qual foi aperfeiçoado o programa, implementados todos os preerequisitos da avaliação e desenvolvida uma interface gráfica para o mesmo.
 
 ###
 
 ### 2. Objetivo
 
-Os requisitos da avaliação (2ª Unidade) eram desenvolver uma aplicação em JAVA na qual fosse possível aplicar os conceitos abaixo:
+Os requisitos da avaliação (3ª Unidade) eram desenvolver uma aplicação em JAVA na qual fosse possível aplicar os conceitos abaixo:
 
 1. Classes e Objetos;
 2. Herança;
