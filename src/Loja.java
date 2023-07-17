@@ -558,7 +558,7 @@ public void adicionarCliente2(Cliente cliente){
     }
   }
   */
-  public void listarClientesVIPGUI(){
+  public void _listarClientesVIPGUI(){
     if (this.clientesVIP.isEmpty()) {
       JOptionPane.showMessageDialog(null, "Não há clientes VIP cadastrados!");
       return;
@@ -574,6 +574,29 @@ public void adicionarCliente2(Cliente cliente){
         Panel.add(new JLabel(listarCarrosClienteGUI(entry.getValue())));
         Panel.add(new JLabel(" "));
       }
+      JOptionPane.showMessageDialog(null, Panel, "Listar Clientes VIP", JOptionPane.PLAIN_MESSAGE);
+    }
+  }
+  public void listarClientesVIPGUI(){
+    if (this.clientesVIP.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há clientes VIP cadastrados!");
+      return;
+    } else {
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Listando clientes VIP..."));
+      JTextArea textArea = new JTextArea(20, 30);
+      textArea.setEditable(false);
+      JScrollPane scrollPane = new JScrollPane(textArea);
+      for (Map.Entry<String, Cliente> entry : this.clientesVIP.entrySet()) {
+        textArea.append("Nome: " + entry.getValue().getNome() + "\n");
+        textArea.append("CPF: " + entry.getValue().getCpf() + "\n");
+        textArea.append("Cadastro: " + entry.getValue().getCadastro() + "\n");
+        //textArea.append("\nCarros comprados: ");
+        textArea.append(listarCarrosClienteGUI(entry.getValue()) + "\n");
+        textArea.append(" ");
+      }
+      Panel.add(scrollPane);
       JOptionPane.showMessageDialog(null, Panel, "Listar Clientes VIP", JOptionPane.PLAIN_MESSAGE);
     }
   }
@@ -640,7 +663,8 @@ public void adicionarCliente2(Cliente cliente){
     //JOptionPane.showMessageDialog(null, "Estoque zerado!");
   }
 
-  public void listarCarrosGUI(){
+  /*
+  public void _listarCarrosGUI(){
     if (this.carros.isEmpty()) {
       JOptionPane.showMessageDialog(null, "Não há carros cadastrados!");
       return;
@@ -659,6 +683,34 @@ public void adicionarCliente2(Cliente cliente){
         Panel.add(new JLabel(" "));
       }
       Panel.add(new JLabel("\nTotal de carros em Estoque: " + this.carros.size()));
+      JOptionPane.showMessageDialog(null, Panel, "Listar Carros", JOptionPane.PLAIN_MESSAGE);
+    }
+  }
+  */
+  public void listarCarrosGUI(){
+    if (this.carros.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há carros cadastrados!");
+      return;
+    } else {
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Listando carros..."));
+      JTextArea textArea = new JTextArea(30,30);
+      textArea.setEditable(false);
+      JScrollPane scrollPane = new JScrollPane(textArea);
+      for (Carro carro : this.carros) {
+        textArea.append("Marca: " + carro.getMarca() + "\n");
+        textArea.append("Modelo: " + carro.getModelo() + "\n");
+        textArea.append("Cor: " + carro.getCor() + "\n");
+        textArea.append("Ano: " + carro.getAno() + "\n");
+        textArea.append("Chassi: " + carro.getChassi() + "\n");
+        textArea.append("Combustível: " + carro.getCombustivel() + "\n");
+        textArea.append("Preço: " + carro.getPreco() + "\n");
+        textArea.append(" ");
+      }
+      textArea.append("\nTotal de carros em Estoque: " + this.carros.size());
+      textArea.setCaretPosition(0);// seta o scroll pro topo
+      Panel.add(scrollPane);
       JOptionPane.showMessageDialog(null, Panel, "Listar Carros", JOptionPane.PLAIN_MESSAGE);
     }
   }
@@ -717,7 +769,7 @@ public void adicionarCliente2(Cliente cliente){
       Panel = new JPanel();
       Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
       Panel.add(new JLabel("Listando clientes..."));
-      JTextArea textArea = new JTextArea(20, 30);
+      JTextArea textArea = new JTextArea(30, 30);
       textArea.setEditable(false);
       JScrollPane scrollPane = new JScrollPane(textArea);
       for (Cliente cliente : this.clientes) {
@@ -751,7 +803,8 @@ public void adicionarCliente2(Cliente cliente){
     }
   }
   */
-  public void listarFuncionariosGUI(){
+  /*
+  public void _listarFuncionariosGUI(){
     if (this.funcionarios.isEmpty()) {
       mensagens = new JPanel();
       mensagens.add(new JLabel("Não há funcionários cadastrados!"));
@@ -768,6 +821,30 @@ public void adicionarCliente2(Cliente cliente){
         Panel.add(new JLabel("Cargo: " + funcionario.getCargo()));
         Panel.add(new JLabel(" "));
       }
+      JOptionPane.showMessageDialog(null, Panel, "Listar Funcionários", JOptionPane.PLAIN_MESSAGE);
+    }
+  }
+  */
+  public void listarFuncionariosGUI(){
+    if (this.funcionarios.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!");
+      return;
+    } else {
+      Panel = new JPanel();
+      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+      Panel.add(new JLabel("Listando funcionários..."));
+      JTextArea textArea = new JTextArea(30, 30);
+      textArea.setEditable(false);
+      JScrollPane scrollPane = new JScrollPane(textArea);
+      for (Funcionario funcionario : this.funcionarios) {
+        textArea.append("Nome: " + funcionario.getNome() + "\n");
+        textArea.append("Matrícula: " + funcionario.getMatricula() + "\n");
+        textArea.append("CPF: " + funcionario.getCpf() + "\n");
+        textArea.append("Cargo: " + funcionario.getCargo() + "\n");
+        textArea.append(" ");
+      }
+      textArea.setCaretPosition(0);// seta o scroll pro topo
+      Panel.add(scrollPane);
       JOptionPane.showMessageDialog(null, Panel, "Listar Funcionários", JOptionPane.PLAIN_MESSAGE);
     }
   }
@@ -1085,5 +1162,31 @@ public void adicionarCliente2(Cliente cliente){
     BufferedReader br = new BufferedReader(new FileReader("loja.json"));
     Loja loja = gson.fromJson(br, Loja.class);
     return loja;
+  }
+
+  public void novaLojaGUI(){
+    Panel = new JPanel();
+    Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
+    Panel.add(new JLabel("Tem certeza que deseja criar uma nova loja?"));
+    int result = JOptionPane.showConfirmDialog(null, Panel, "Nova Loja", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+    if (result == JOptionPane.OK_OPTION) {
+      mensagens = new JPanel();
+      mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
+      mensagens.add(new JLabel("Nome da loja:"));
+      JTextField nome = new JTextField();
+      mensagens.add(nome);
+      mensagens.add(new JLabel("Saldo inicial:"));
+      JTextField saldo = new JTextField();
+      mensagens.add(saldo);
+      int result2 = JOptionPane.showConfirmDialog(null, mensagens, "Nova Loja", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+      if (result2 == JOptionPane.OK_OPTION) {
+        this.nome = nome.getText();
+        this.caixa = Double.parseDouble(saldo.getText());
+        this.carros.clear();
+        this.clientes.clear();
+        this.clientesVIP.clear();
+        this.funcionarios.clear();
+      }
+    }
   }
 }

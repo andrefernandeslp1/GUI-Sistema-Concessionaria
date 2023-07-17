@@ -65,7 +65,12 @@ public class AppGUI extends JFrame {
         exitButton.addActionListener(e -> exitProgram());
 
         JButton novaLojaButton = new JButton("Criar Nova Loja");
-        novaLojaButton.addActionListener(e -> showNovaLojaPanel());
+        //novaLojaButton.addActionListener(e -> showNovaLojaPanel());
+        novaLojaButton.addActionListener(e -> {
+            loja.novaLojaGUI();
+            createInitialPanel();
+            showInitialPanel();
+        });
 
         initialPanel.add(nameLabel);
         initialPanel.add(caixaLabel);

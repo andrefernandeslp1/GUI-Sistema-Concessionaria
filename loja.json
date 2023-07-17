@@ -1,68 +1,59 @@
 {
-  "nome": "Loja do André",
-  "caixa": 1000000.0,
+  "nome": "EdCar",
+  "caixa": 125000.0,
   "carros": [
     {
-      "marca": "VW",
-      "modelo": "POLO",
-      "cor": "BRANCO",
-      "ano": 2010,
-      "chassi": "JAT89607822592096",
-      "combustivel": "FLEX",
-      "preco": 50000.0
-    },
-    {
-      "marca": "VW",
-      "modelo": "POLO",
-      "cor": "BRANCO",
-      "ano": 2010,
-      "chassi": "AZL90176604683401",
-      "combustivel": "FLEX",
-      "preco": 50000.0
-    },
-    {
-      "marca": "VW",
-      "modelo": "POLO",
-      "cor": "BRANCO",
-      "ano": 2010,
-      "chassi": "KFO87378481111154",
-      "combustivel": "FLEX",
-      "preco": 50000.0
-    },
-    {
-      "marca": "VW",
-      "modelo": "POLO",
-      "cor": "BRANCO",
-      "ano": 2010,
-      "chassi": "DWY96767049306726",
-      "combustivel": "FLEX",
-      "preco": 50000.0
-    },
-    {
-      "marca": "VW",
-      "modelo": "POLO",
-      "cor": "BRANCO",
-      "ano": 2010,
-      "chassi": "VVV51729109312190",
-      "combustivel": "FLEX",
-      "preco": 50000.0
+      "marca": "vw",
+      "modelo": "gol",
+      "cor": "azul",
+      "ano": 2000,
+      "chassi": "OQW35007057538989",
+      "combustivel": "gasolina",
+      "preco": 25000.0
     }
   ],
   "clientes": [
     {
-      "cadastro": "JOA000",
-      "carrosComprados": [],
-      "nome": "JOAO",
-      "cpf": "00011122233"
+      "cadastro": "ped123",
+      "carrosComprados": [
+        {
+          "marca": "vw",
+          "modelo": "gol",
+          "cor": "azul",
+          "ano": 2000,
+          "chassi": "EPY01924095556002",
+          "combustivel": "gasolina",
+          "preco": 25000.0
+        }
+      ],
+      "nome": "pedro",
+      "cpf": "123456789"
     }
   ],
   "funcionarios": [
     {
-      "matricula": "123VEN",
-      "cargo": "VENDEDOR",
-      "nome": "PEDRO",
-      "cpf": "123456789"
+      "matricula": "111ger",
+      "cargo": "gerente",
+      "nome": "andre",
+      "cpf": "11122233344"
     }
   ],
-  "clientesVIP": {}
+  "clientesVIP": {
+    "123456789": {
+      "cadastro": "ped123",
+      "carrosComprados": [
+        {
+          "marca": "vw",
+          "modelo": "gol",
+          "cor": "azul",
+          "ano": 2000,
+          "chassi": "EPY01924095556002",
+          "combustivel": "gasolina",
+          "preco": 25000.0
+        }
+      ],
+      "nome": "pedro",
+      "cpf": "123456789"
+    }
+  }
 }
