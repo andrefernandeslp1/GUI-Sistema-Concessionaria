@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 
@@ -84,13 +83,7 @@ public class AppGUI extends JFrame {
         initialPanel.add(exitButton);
 
         add(initialPanel);
-        /*
-        if (loja.getNome() == null) {
-            showNovaLojaPanel();
-        } else {
-            //showInitialPanel();
-        }
-        */
+
     }
 
     private void createResourcesPanel() {
@@ -247,49 +240,6 @@ public class AppGUI extends JFrame {
         salesPanel.add(zerarEstoqueButton);
         salesPanel.add(backButton);
     }
-
-    /*
-    private void createNovaLojaPanel() {
-        novaLojaPanel = new JPanel();
-        novaLojaPanel.setLayout(new GridLayout(7, 1));
-
-        JLabel titleLabel = new JLabel("Nova Loja\n");
-        titleLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16));
-
-        JLabel nameLabel = new JLabel("Nome da Loja:");
-        JTextField nameField = new JTextField();
-
-        JLabel caixaLabel = new JLabel("Saldo de Caixa:");
-        JTextField caixaField = new JTextField();
-
-        JButton confirmButton = new JButton("Confirmar");
-        confirmButton.addActionListener(e -> {
-            // Lógica para criar nova loja
-            loja = new Loja(nameField.getText(), Double.parseDouble(caixaField.getText()));
-            createInitialPanel();
-            showInitialPanel();
-        });
-
-        JButton backButton = new JButton("Voltar");
-        backButton.addActionListener(e -> showInitialPanel());
-
-        novaLojaPanel.add(titleLabel);
-        novaLojaPanel.add(nameLabel);
-        novaLojaPanel.add(nameField);
-        novaLojaPanel.add(caixaLabel);
-        novaLojaPanel.add(caixaField);
-        novaLojaPanel.add(confirmButton);
-        novaLojaPanel.add(backButton);
-
-        //add(novaLojaPanel);
-    }
-
-    private void showNovaLojaPanel() {
-        setContentPane(novaLojaPanel);
-        revalidate();
-        repaint();
-    }
-    */
 
     private void showResourcesPanel() {
         setContentPane(resourcesPanel);

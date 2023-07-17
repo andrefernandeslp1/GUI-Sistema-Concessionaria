@@ -3,7 +3,6 @@ import java.io.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javax.swing.*;
-import java.awt.*;
 
 public class Loja {
   private String nome;
@@ -55,31 +54,6 @@ public class Loja {
     }
   }
 
-  /*
-  public void demitirFuncionario() {
-    if (this.funcionarios.isEmpty()) {
-      System.out.println("\nNão há funcionários cadastrados!");
-      return;
-    } else {
-      System.out.println("\nPor favor digite a matrícula do Funcionário:");
-      String matriculaRemover = input.nextLine();
-      if(verificarFuncionario(matriculaRemover)){
-        System.out.println("\nFuncionário localizado!");
-        System.out.println("Demitindo funcionário...");
-        for (Funcionario funcionario : this.funcionarios) {
-          if (funcionario.getMatricula().equals(matriculaRemover)) {
-            this.funcionarios.remove(funcionario);
-            System.out.println("Funcionário demitido com sucesso!");
-            return;
-          }
-        }
-      } else {
-          System.out.println("\nFuncionário não encontrado!");
-          return;
-      }
-    }
-  }
-  */
   public void demitirFuncionarioGUI(){
     if (this.funcionarios.isEmpty()) {
       JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!");
@@ -403,21 +377,7 @@ public void adicionarCliente2(Cliente cliente){
   public void adicionarFuncionario(Funcionario funcionario) {
     this.funcionarios.add(funcionario);
   }
-  /*
-  public void cadastrarFuncionario() {
-    System.out.println("\nCadastrando funcionário...");
-    System.out.println("Digite o nome do funcionário:");
-    String nome = input.nextLine();
-    System.out.println("Digite o CPF do funcionário:");
-    String cpf = input.nextLine();
-    System.out.println("Digite o cargo do funcionário:");
-    String cargo = input.nextLine();
-    Funcionario funcionario = new Funcionario(nome, cpf, cargo);
-    this.funcionarios.add(funcionario);
-    System.out.println("\nFuncionário cadastrado com sucesso!");
-    System.out.println("Matrícula: " + funcionario.getMatricula());
-  }
-  */
+
   // interface gráfica para cadastrarFuncionario()
   public void cadastrarFuncionarioGUI() {
     Panel = new JPanel();
@@ -462,16 +422,13 @@ public void adicionarCliente2(Cliente cliente){
     System.out.println("Digite o ano do carro:");
     int ano = input.nextInt();
     input.nextLine();
-    // input.nextLine();
+
     System.out.println("Digite o tipo de combustível do carro:");
     String combustivel = input.nextLine();
     System.out.println("Digite o preço do carro:");
     double preco = input.nextDouble();
     input.nextLine();
-    // gerar chassi chassi aleatório de 17 numeros ou letras, todos uppercase
-    // String chassi = geradorDeChassi();
-    // System.out.println("Chassi gerado: " + chassi);
-    // Carro carro = new Carro(marca, modelo, cor, ano, chassi, combustivel, preco);
+
     System.out.println("Digite a quantidade de carros que deseja inserir no Estoque:");
     int quantidade = input.nextInt();
     input.nextLine();
@@ -515,12 +472,7 @@ public void adicionarCliente2(Cliente cliente){
         Carro carro = new Carro(marca.getText(), modelo.getText(), cor.getText(), Integer.parseInt(ano.getText()), chassi, combustivel.getText(), Double.parseDouble(preco.getText()));
         this.carros.add(carro);
       }
-      /*
-      mensagens = new JPanel();
-      mensagens.setLayout(new BoxLayout(mensagens, BoxLayout.Y_AXIS));
-      mensagens.add(new JLabel("Carro(s) cadastrado(s) com sucesso!"));
-      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
-      */
+
       JOptionPane.showMessageDialog(null, "Carro(s) cadastrado(s) com sucesso!");
     }
   }
@@ -540,24 +492,6 @@ public void adicionarCliente2(Cliente cliente){
     return chassi;
   }
 
-  // listar clientes vip
-  /*
-  public void listarClientesVIP() {
-    if (this.clientesVIP.isEmpty()) {
-      System.out.println("\nNão há clientes VIP cadastrados!");
-      return;
-    } else {
-      System.out.println("\nListando clientes VIP...");
-      for (Map.Entry<String, Cliente> entry : this.clientesVIP.entrySet()) {
-        System.out.println("\nNome: " + entry.getValue().getNome());
-        System.out.println("CPF: " + entry.getValue().getCpf());
-        System.out.println("Cadastro: " + entry.getValue().getCadastro());
-        System.out.println("Carros comprados: ");
-        listarCarrosCliente(entry.getValue());
-      }
-    }
-  }
-  */
   public void _listarClientesVIPGUI(){
     if (this.clientesVIP.isEmpty()) {
       JOptionPane.showMessageDialog(null, "Não há clientes VIP cadastrados!");
@@ -659,34 +593,9 @@ public void adicionarCliente2(Cliente cliente){
       this.carros.clear();
       JOptionPane.showMessageDialog(null, "Estoque zerado!");
     }
-    //this.carros.clear();
-    //JOptionPane.showMessageDialog(null, "Estoque zerado!");
+
   }
 
-  /*
-  public void _listarCarrosGUI(){
-    if (this.carros.isEmpty()) {
-      JOptionPane.showMessageDialog(null, "Não há carros cadastrados!");
-      return;
-    } else {
-      Panel = new JPanel();
-      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
-      Panel.add(new JLabel("Listando carros..."));
-      for (Carro carro : this.carros) {
-        Panel.add(new JLabel("\nMarca: " + carro.getMarca()));
-        Panel.add(new JLabel("Modelo: " + carro.getModelo()));
-        Panel.add(new JLabel("Cor: " + carro.getCor()));
-        Panel.add(new JLabel("Ano: " + carro.getAno()));
-        Panel.add(new JLabel("Chassi: " + carro.getChassi()));
-        Panel.add(new JLabel("Combustível: " + carro.getCombustivel()));
-        Panel.add(new JLabel("Preço: " + carro.getPreco()));
-        Panel.add(new JLabel(" "));
-      }
-      Panel.add(new JLabel("\nTotal de carros em Estoque: " + this.carros.size()));
-      JOptionPane.showMessageDialog(null, Panel, "Listar Carros", JOptionPane.PLAIN_MESSAGE);
-    }
-  }
-  */
   public void listarCarrosGUI(){
     if (this.carros.isEmpty()) {
       JOptionPane.showMessageDialog(null, "Não há carros cadastrados!");
@@ -715,52 +624,6 @@ public void adicionarCliente2(Cliente cliente){
     }
   }
 
-  /*
-  public void listarClientes() {
-    if (this.clientes.isEmpty()) {
-      System.out.println("\nNão há clientes cadastrados!");
-      return;
-    } else {
-      System.out.println("\nListando clientes...");
-      for (Cliente cliente : this.clientes) {
-        System.out.println("\nNome: " + cliente.getNome());
-        System.out.println("CPF: " + cliente.getCpf());
-        System.out.println("Cadastro: " + cliente.getCadastro());
-        System.out.println("Carros comprados: ");
-        verificarClienteVIP(cliente.getCpf());
-        // tem que por uma verificação pra conferir se o cliente possui carro ou não
-        listarCarrosCliente(cliente);
-      }
-    }
-  }
-  */
-  /*
-  public void listarClientesGUI(){
-    if (this.clientes.isEmpty()) {
-      //mensagens = new JPanel();
-      //mensagens.add(new JLabel("Não há clientes cadastrados!"));
-      //JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
-      JOptionPane.showMessageDialog(null, "Não há clientes cadastrados!");
-      return;
-    } else {
-      Panel = new JPanel();
-      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
-      Panel.add(new JLabel("Listando clientes..."));
-      for (Cliente cliente : this.clientes) {
-        Panel.add(new JLabel("\nNome: " + cliente.getNome()));
-        Panel.add(new JLabel("CPF: " + cliente.getCpf()));
-        Panel.add(new JLabel("Cadastro: " + cliente.getCadastro()));
-        Panel.add(new JLabel("Carros comprados: "));
-        Panel.add(new JLabel(verificarClienteVIPGUI(cliente.getCpf())));
-        //verificarClienteVIP(cliente.getCpf());
-        Panel.add(new JLabel(listarCarrosClienteGUI(cliente)));
-        //listarCarrosClienteGUI(cliente);
-        Panel.add(new JLabel(" "));
-      }
-      JOptionPane.showMessageDialog(null, Panel, "Listar Clientes", JOptionPane.PLAIN_MESSAGE);
-    }
-  }
-  */
   public void listarClientesGUI(){
     if (this.clientes.isEmpty()) {
       JOptionPane.showMessageDialog(null, "Não há clientes cadastrados!");
@@ -786,45 +649,6 @@ public void adicionarCliente2(Cliente cliente){
     }
   }
 
-  /*
-  public void listarFuncionarios() {
-    if (this.funcionarios.isEmpty()) {
-      System.out.println("\nNão há funcionários cadastrados!");
-      return;
-    } else {
-      System.out.println("\nListando funcionários...");
-      for (Funcionario funcionario : this.funcionarios) {
-        System.out.println("\nNome: " + funcionario.getNome());
-        System.out.println("Matrícula: " + funcionario.getMatricula());
-        System.out.println("CPF: " + funcionario.getCpf());
-        System.out.println("Cargo: " + funcionario.getCargo());
-        //System.out.println("");
-      }
-    }
-  }
-  */
-  /*
-  public void _listarFuncionariosGUI(){
-    if (this.funcionarios.isEmpty()) {
-      mensagens = new JPanel();
-      mensagens.add(new JLabel("Não há funcionários cadastrados!"));
-      JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
-      return;
-    } else {
-      Panel = new JPanel();
-      Panel.setLayout(new BoxLayout(Panel, BoxLayout.Y_AXIS));
-      Panel.add(new JLabel("Listando funcionários..."));
-      for (Funcionario funcionario : this.funcionarios) {
-        Panel.add(new JLabel("\nNome: " + funcionario.getNome()));
-        Panel.add(new JLabel("Matrícula: " + funcionario.getMatricula()));
-        Panel.add(new JLabel("CPF: " + funcionario.getCpf()));
-        Panel.add(new JLabel("Cargo: " + funcionario.getCargo()));
-        Panel.add(new JLabel(" "));
-      }
-      JOptionPane.showMessageDialog(null, Panel, "Listar Funcionários", JOptionPane.PLAIN_MESSAGE);
-    }
-  }
-  */
   public void listarFuncionariosGUI(){
     if (this.funcionarios.isEmpty()) {
       JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!");
@@ -849,38 +673,6 @@ public void adicionarCliente2(Cliente cliente){
     }
   }
 
-  /*
-  public void consultarCliente() {
-    System.out.println("\nConsultando cliente...");
-    if (this.clientes.isEmpty()) {
-      System.out.println("\nNão há clientes cadastrados!");
-      return;
-    } else {
-      System.out.println("\nDigite o CPF do cliente que deseja encontrar.");
-      String cpfCliente = input.nextLine();
-      if(verificarCliente(cpfCliente)){
-        //System.out.println("Cliente localizado!");
-        for (Cliente cliente : this.clientes) {
-          if (cliente.getCpf().equals(cpfCliente)) {
-            System.out.println("\nCliente localizado!");
-            System.out.println("Nome: " + cliente.getNome());
-            System.out.println("Cadastro: " + cliente.getCadastro());
-            System.out.println("CPF: " + cliente.getCpf());
-            //System.out.println("");
-            verificarClienteVIP(cliente.getCpf());
-            listarCarrosCliente(cliente);
-            return;
-          }
-        }
-      } else {
-        System.out.println("\nCliente não encontrado!");
-        return;
-      }
-      //System.out.println("Listando clientes...");
-
-    }
-  }
-  */
   public void consultarClienteGUI(){
     if (this.clientes.isEmpty()) {
       mensagens = new JPanel();
@@ -1099,19 +891,11 @@ public void adicionarCliente2(Cliente cliente){
         }
 
         if (count > 0) {
-          /*
-          mensagens = new JPanel();
-          mensagens.add(new JLabel("Total de carros deste Modelo encontrados: " + count));
-          JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
-          */
+
           JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
 
         } else {
-          /*
-          mensagens = new JPanel();
-          mensagens.add(new JLabel("Modelo não encontrado!"));
-          JOptionPane.showMessageDialog(null, mensagens, "Mensagem", JOptionPane.PLAIN_MESSAGE);
-          */
+
           JOptionPane.showMessageDialog(null, "Modelo não encontrado!");
         }
       } else {
@@ -1124,21 +908,6 @@ public void adicionarCliente2(Cliente cliente){
       }
     }
   }
-
-  // função para objeto salvar loja em arquivo json
-  /*
-  public void salvarLoja(Loja loja) {
-    Gson gson = new Gson();
-    String json = gson.toJson(loja);
-    try {
-      FileWriter writer = new FileWriter("loja.json");
-      writer.write(json);
-      writer.close();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-  */
 
   public void adicionarClienteVIP(Cliente cliente) {
     this.clientesVIP.put(cliente.getCpf(), cliente);

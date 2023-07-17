@@ -1,13 +1,11 @@
 import java.util.*;
 import javax.swing.*;
-import java.awt.*;
 
 public class Funcionario extends Pessoa {
   private String matricula;
   private String cargo;
   private transient Scanner input = new Scanner(System.in);
   private transient JPanel adicionarClientePanel;
-  private transient JPanel mensagensPanel;
 
   public Funcionario() {
   }
