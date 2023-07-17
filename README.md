@@ -75,7 +75,8 @@ Para compilar o programa Java na linha de comando, siga as etapas abaixo:
 
 Os arquivos serão compilados na estrutura padrão de diretórios de um projeto Java:
 
-# #0-imagem
+![0](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/ac24d40a-fe98-4cbb-a089-6f55fb61db02)
+
 
 ### 4.2. Execução
 
@@ -93,7 +94,8 @@ Para executar o programa, a partir do diretório raiz do projeto `LP2-Trabalho-U
 
 O seguinte menu será exibido:
 
-# #1-imagem
+![1](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/63c3026a-7814-4a24-850e-d95b7e9bd6fd)
+
 
 A partir do menu acima, o usuário iniciará sua jornada pelo SYSCAR - Sistema de Informações para Concessionárias de Automóveis.
 Aqui temos informações relativas à Loja e os botões dos menus que o usuário poderá acessar.
@@ -106,7 +108,8 @@ Ao clicar no botão `Nova Loja`, o usuário poderá "setar" uma nova instância 
 
 Ao entrar em recursos humanos, o usuário terá acesso às seguintes operações:
 
-# #2-imagem
+![2](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/1059dfd2-46e7-4370-be37-b455f80f8d90)
+
 
 Aqui o usuário poderá:
 
@@ -122,7 +125,8 @@ Aqui o usuário poderá:
 
 Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
-# #3-imagem
+![3](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/6ea4f8fe-e582-40c3-9a65-aadecca41618)
+
 
 * Cadastrar Cliente: Aqui, o sistema irá solicitar ao usuário a matrícula do funcionário que está cadastrando o cliente, para que seja possível realizar a operação. O programa irá verificar a lista de funcionários da loja e, caso a matrícula fornecida não exista, o programa exibirá uma mensagem de erro. Caso a matrícula exista, o programa irá solicitar as informações do cliente e, em seguida, irá colocá-las em um objeto cliente, para então serem inseridas em uma lista no objeto loja.
 
@@ -134,7 +138,8 @@ Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
 Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes operações:
 
-# #4-imagem
+![4](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/8b953035-a8cc-4f77-b693-bcf0d4f0e2ae)
+
 
 * Abastecer Estoque: O usuário poderá abastecer o estoque da loja com novos automóveis. As informações do automóvel serão passadas pelo usuário ao programa e, em seguida, serão colocadas em um objeto carro, para então serem inseridas em uma lista no objeto loja.
 
@@ -144,7 +149,8 @@ Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes opera
 
 Ao entrar em estoque, o usuário terá acesso às seguintes operações:
 
-# #5-imagem
+![7](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/424ca90d-fd5c-423c-96bb-4763544e9fa3)
+
 
 * Consultar Automóvel: O usuário poderá consultar um automóvel pelo seu modelo. Caso o automóvel não exista, o programa exibirá uma mensagem de erro. Caso o automóvel exista, o programa exibirá as informações do automóvel.
 
