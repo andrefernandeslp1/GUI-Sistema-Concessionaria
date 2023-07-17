@@ -104,7 +104,7 @@ Ao inicializar o programa, um arquivo JSON com os dados da loja, preenchidos em 
 
 Ao sair do sistema, o objeto Loja será convertido para formato JSON e salvo em um arquivo, para que os dados sejam preservados para acessos futuros.
 
-#### 4.2.0. **`Nova Loja`**
+#### 4.2.0. **`Criar Nova Loja`**
 
 Ao clicar no botão `Nova Loja`, o usuário poderá "setar" uma nova instância de Loja, apagando todos os dados correntes e inicializando um novo projeto.
 
@@ -140,6 +140,8 @@ Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
 * Listar Clientes: Todos os clientes cadastrados serão exibidos na tela. Caso não exista nenhum cliente cadastrado, o programa exibirá uma mensagem de erro.
 
+* Listar Clientes VIP: Todos os clientes cadastrados que possuírem 1 ou mais automóveis serão exibidos na tela. Caso não exista nenhum cliente cadastrado, o programa exibirá uma mensagem de alerta.
+
 #### 4.2.3. `3 - Abastecimento e Vendas`
 
 Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes operações:
@@ -152,6 +154,8 @@ Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes opera
 
 * Vender Automóvel: O usuário poderá vender um automóvel para um cliente. O programa irá solicitar a matrícula do cliente e o chassi do automóvel. Caso o cliente não exista, o programa exibirá uma mensagem de erro. Caso o automóvel não exista, o programa exibirá uma mensagem de erro. Por fim, o programa irá exibir uma mensagem de sucesso e o automóvel será removido da lista de automóveis da loja e adicionado à lista de automóveis do cliente.
 
+* Comprar Carro (do Cliente): O usuário poderá comprar um automóvel de um cliente. O programa irá solicitar a matrícula do cliente e o chassi do automóvel. Caso o cliente não exista, o programa exibirá uma mensagem de alerta. Caso o automóvel não exista, o programa exibirá uma mensagem de alerta. Por fim, o programa irá exibir uma mensagem de sucesso e o automóvel será removido da lista de automóveis do cliente e adicionado à lista de automóveis da loja.
+
 #### 4.2.4. `4 - Estoque`
 
 Ao entrar em estoque, o usuário terá acesso às seguintes operações:
@@ -163,6 +167,8 @@ Ao entrar em estoque, o usuário terá acesso às seguintes operações:
 * Consultar Automóvel: O usuário poderá consultar um automóvel pelo seu modelo. Caso o automóvel não exista, o programa exibirá uma mensagem de erro. Caso o automóvel exista, o programa exibirá as informações do automóvel.
 
 * Listar Automóveis: Todos os automóveis cadastrados serão exibidos na tela. Caso não exista nenhum automóvel cadastrado, o programa exibirá uma mensagem de erro.
+
+* Zerar Estoque: Todos os automóveis cadastrados serão removidos da lista de automóveis da loja. Caso não exista nenhum automóvel cadastrado, o programa exibirá uma mensagem de alerta.
 
 ### 5. Implementação
 
