@@ -32,6 +32,7 @@ Os requisitos da avaliação (2ª Unidade) eram desenvolver uma aplicação em J
 6. Polimorfismo;
 7. Tratamento de Exceção;
 8. Coleções;
+9. Interface Gráfica
 
 ###
 
@@ -45,7 +46,7 @@ Para nosso projeto, criamos um sistema de informações para concessionárias de
 
 * Estoques;
 
-* Vendas.
+* Abastecimento e Vendas.
 
 Tais departamentos serão dispostos em forma de menus para o usuário do sistema, em que cada menu possuirá sub-menus para realizar operações específicas para cada área, como cadastrar clientes, cadastrar funcionários, abastecer estoque, realizar vendas, entre outras.
 
@@ -68,36 +69,44 @@ Para compilar o programa Java na linha de comando, siga as etapas abaixo:
 3. Abra um prompt de comando ou terminal no seu sistema operacional.
 
 4. Navegue até o diretório raiz do projeto, onde se encontra o arquivo Makefile, e execute o seguinte comando: **`make all`**
-
    O comando acima irá compilar os arquivos .java e gerar os arquivos .class.
-
    OBS: Caso o comando acima não funcione, tente executar o seguinte comando: **`javac -d bin -cp "lib/*" src/*.java`**
-
-   A seguinte tela será exibida:
-
-# #IMAGEM
+   Após isto, se tudo correr bem, seu programa estará compilado e pronto para execução.
 
 Os arquivos serão compilados na estrutura padrão de diretórios de um projeto Java:
 
-![image](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2/assets/92834067/d724a7ec-0ea7-46f1-96a3-91c219993b2b)
+# #0-imagem
 
 ### 4.2. Execução
 
-Para executar o programa, a partir do diretório raiz do projeto `/` digite **`make run`** no prompt de comando.
+Para executar o programa, a partir do diretório raiz do projeto `LP2-Trabalho-U3_V2-GUI/` digite no terminal:
 
-OBS: Caso o comando acima não funcione, tente executar o seguinte comando: **`java -cp "bin;lib/*" App`**
+* do WINDOWS: **`make run`**
+
+* do LINUX: **`make runlinux`**
+
+**OBS:** Caso o comando acima não funcione, tente executar o seguinte comando:
+
+* no Windows: **`java -cp "bin;lib/*" AppGUI`**
+
+* no Linux: **`java -cp "bin:lib/*" AppGUI`**
 
 O seguinte menu será exibido:
 
-# #IMAGEM
+# #1-imagem
 
 A partir do menu acima, o usuário iniciará sua jornada pelo SYSCAR - Sistema de Informações para Concessionárias de Automóveis.
+Aqui temos informações relativas à Loja e os botões dos menus que o usuário poderá acessar.
 
-#### 4.2.1. `1 - Recursos Humanos`
+#### 4.2.0. **`Nova Loja`**
+
+Ao clicar no botão `Nova Loja`, o usuário poderá "setar" uma nova instância de Loja, apagando todos os dados correntes e inicializando um novo projeto.
+
+#### 4.2.1. **`Recursos Humanos`**
 
 Ao entrar em recursos humanos, o usuário terá acesso às seguintes operações:
 
-![Recursos-Humanos](https://github.com/andrefernandeslp1/LP2-Trabalho-U3/assets/92834067/505ae205-076a-4fd3-bb3e-9bbd04393b91)
+# #2-imagem
 
 Aqui o usuário poderá:
 
@@ -113,7 +122,7 @@ Aqui o usuário poderá:
 
 Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
-![Clientes](https://github.com/andrefernandeslp1/LP2-Trabalho-U3/assets/92834067/09c3c4be-77e1-4ebc-aa78-11763076bcc4)
+# #3-imagem
 
 * Cadastrar Cliente: Aqui, o sistema irá solicitar ao usuário a matrícula do funcionário que está cadastrando o cliente, para que seja possível realizar a operação. O programa irá verificar a lista de funcionários da loja e, caso a matrícula fornecida não exista, o programa exibirá uma mensagem de erro. Caso a matrícula exista, o programa irá solicitar as informações do cliente e, em seguida, irá colocá-las em um objeto cliente, para então serem inseridas em uma lista no objeto loja.
 
@@ -125,7 +134,7 @@ Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
 Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes operações:
 
-![abast-e-vendas](https://github.com/andrefernandeslp1/LP2-Trabalho-U3/assets/92834067/fc87a8e7-830e-4592-a0ba-ec1cb420aee0)
+# #4-imagem
 
 * Abastecer Estoque: O usuário poderá abastecer o estoque da loja com novos automóveis. As informações do automóvel serão passadas pelo usuário ao programa e, em seguida, serão colocadas em um objeto carro, para então serem inseridas em uma lista no objeto loja.
 
@@ -135,7 +144,7 @@ Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes opera
 
 Ao entrar em estoque, o usuário terá acesso às seguintes operações:
 
-![Estoque](https://github.com/andrefernandeslp1/LP2-Trabalho-U3/assets/92834067/6a415291-2e2c-4fed-ada6-ef092fcc7211)
+# #5-imagem
 
 * Consultar Automóvel: O usuário poderá consultar um automóvel pelo seu modelo. Caso o automóvel não exista, o programa exibirá uma mensagem de erro. Caso o automóvel exista, o programa exibirá as informações do automóvel.
 
@@ -153,10 +162,9 @@ O projeto possui a seguinte estrutura de classes:
 
 * Carro: classe que será utilizada para instanciar os automóveis da loja e dos clientes.;
 
-* Loja: classe utilizada para instanciar o objeto loja. Loja possuirá coleções do tipo List<> para clientes, funcionários e carros, além de métodos para manipular seus atributos e coleções;
+* Loja: classe que possui os atributos e métodos necessários para gerenciar os departamentos da loja. Aqui se encontram as coleções de funcionários, clientes e automóveis da loja;
 
 * App: Classe que contem o main, no qual será executado o programa.
-
 
 ### 6. Tecnologias utilizadas
 
@@ -164,7 +172,11 @@ Para desenvolver o sistema foi utilizada a linguagem de programação Java e o e
 
 Para compilar o programa, foi utilizado o compilador javac e o make.
 
+Para realizar as conversões de arquivo JSON-Objeto e Objeto-JSON, foi utilizada a biblioteca GSON.
+
+Para desenvolver a interface gráfica, foi utilizada a biblioteca Swing.
 
 ### 7. Conclusão
 
-O projeto se encontra em estágio avançado de desenvolvimento e, até o momento, foi possível aplicar os conceitos de classes e objetos, herança, classes abstratas, interfaces, composição, polimorfismo, tratamento de exceção e coleções.
+O projeto foi desenvolvido com sucesso, atendendo aos requisitos da avaliação. O sistema possui uma interface gráfica simples e intuitiva, que permite ao usuário navegar facilmente entre os menus e realizar as operações desejadas.
+

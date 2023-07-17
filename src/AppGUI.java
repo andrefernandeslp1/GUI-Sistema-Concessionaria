@@ -13,7 +13,7 @@ public class AppGUI extends JFrame {
     private JPanel inventoryPanel;
     private JPanel salesPanel;
 
-    private JPanel novaLojaPanel;
+    //private JPanel novaLojaPanel;
 
     public AppGUI() {
         super("SYSCAR - Sistema de Informações para Concessionárias de Automóveis");
@@ -33,10 +33,10 @@ public class AppGUI extends JFrame {
         createClientsPanel();
         createInventoryPanel();
         createSalesPanel();
-        createNovaLojaPanel();
+        //createNovaLojaPanel();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(400, 300);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -64,6 +64,7 @@ public class AppGUI extends JFrame {
         JButton exitButton = new JButton("Sair do Programa");
         exitButton.addActionListener(e -> exitProgram());
 
+
         JButton novaLojaButton = new JButton("Criar Nova Loja");
         //novaLojaButton.addActionListener(e -> showNovaLojaPanel());
         novaLojaButton.addActionListener(e -> {
@@ -71,6 +72,7 @@ public class AppGUI extends JFrame {
             createInitialPanel();
             showInitialPanel();
         });
+
 
         initialPanel.add(nameLabel);
         initialPanel.add(caixaLabel);
@@ -246,6 +248,7 @@ public class AppGUI extends JFrame {
         salesPanel.add(backButton);
     }
 
+    /*
     private void createNovaLojaPanel() {
         novaLojaPanel = new JPanel();
         novaLojaPanel.setLayout(new GridLayout(7, 1));
@@ -286,6 +289,7 @@ public class AppGUI extends JFrame {
         revalidate();
         repaint();
     }
+    */
 
     private void showResourcesPanel() {
         setContentPane(resourcesPanel);
