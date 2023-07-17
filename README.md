@@ -100,6 +100,10 @@ O seguinte menu será exibido:
 A partir do menu acima, o usuário iniciará sua jornada pelo SYSCAR - Sistema de Informações para Concessionárias de Automóveis.
 Aqui temos informações relativas à Loja e os botões dos menus que o usuário poderá acessar.
 
+Ao inicializar o programa, um arquivo JSON com os dados da loja, preenchidos em um acesso anterior, será carregado. Os dados nele contidos serão utilizados para instanciar um objeto Loja, que será utilizado para gerenciar os departamentos da loja. Caso o arquivo JSON não exista, um novo objeto Loja será instanciado de forma genérica e o programa continuará normalmente.
+
+Ao sair do sistema, o objeto Loja será convertido para formato JSON e salvo em um arquivo, para que os dados sejam preservados para acessos futuros.
+
 #### 4.2.0. **`Nova Loja`**
 
 Ao clicar no botão `Nova Loja`, o usuário poderá "setar" uma nova instância de Loja, apagando todos os dados correntes e inicializando um novo projeto.
