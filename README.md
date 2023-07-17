@@ -16,7 +16,7 @@
 
 Este projeto foi desenvolvido para a disciplina de Linguagem de Programação II, como meio de avaliar os conhecimentos adquiridos pelo aluno ao longo da disciplina.
 
-Esta etapa consiste de na entrega final do projeto, na qual foi aperfeiçoado o programa, implementados todos os preerequisitos da avaliação e desenvolvida uma interface gráfica para o mesmo.
+Esta etapa consiste de na entrega final do projeto, na qual foi aperfeiçoado o programa, implementados todos os pré-requisitos da avaliação e desenvolvida uma interface gráfica para o mesmo.
 
 ###
 
