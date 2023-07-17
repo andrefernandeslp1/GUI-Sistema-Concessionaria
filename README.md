@@ -140,7 +140,8 @@ Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
 Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes operações:
 
-![7](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/424ca90d-fd5c-423c-96bb-4763544e9fa3)
+![6](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/7230f692-3565-4b25-8504-d84693b50473)
+
 
 
 * Abastecer Estoque: O usuário poderá abastecer o estoque da loja com novos automóveis. As informações do automóvel serão passadas pelo usuário ao programa e, em seguida, serão colocadas em um objeto carro, para então serem inseridas em uma lista no objeto loja.
