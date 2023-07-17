@@ -104,11 +104,13 @@ Aqui temos informações relativas à Loja e os botões dos menus que o usuário
 
 Ao clicar no botão `Nova Loja`, o usuário poderá "setar" uma nova instância de Loja, apagando todos os dados correntes e inicializando um novo projeto.
 
+![2](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/1059dfd2-46e7-4370-be37-b455f80f8d90)
+
 #### 4.2.1. **`Recursos Humanos`**
 
 Ao entrar em recursos humanos, o usuário terá acesso às seguintes operações:
 
-![2](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/1059dfd2-46e7-4370-be37-b455f80f8d90)
+![3](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/6ea4f8fe-e582-40c3-9a65-aadecca41618)
 
 
 Aqui o usuário poderá:
@@ -125,7 +127,7 @@ Aqui o usuário poderá:
 
 Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
-![3](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/6ea4f8fe-e582-40c3-9a65-aadecca41618)
+![4](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/8b953035-a8cc-4f77-b693-bcf0d4f0e2ae)
 
 
 * Cadastrar Cliente: Aqui, o sistema irá solicitar ao usuário a matrícula do funcionário que está cadastrando o cliente, para que seja possível realizar a operação. O programa irá verificar a lista de funcionários da loja e, caso a matrícula fornecida não exista, o programa exibirá uma mensagem de erro. Caso a matrícula exista, o programa irá solicitar as informações do cliente e, em seguida, irá colocá-las em um objeto cliente, para então serem inseridas em uma lista no objeto loja.
@@ -138,7 +140,7 @@ Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
 Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes operações:
 
-![4](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/8b953035-a8cc-4f77-b693-bcf0d4f0e2ae)
+![7](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/424ca90d-fd5c-423c-96bb-4763544e9fa3)
 
 
 * Abastecer Estoque: O usuário poderá abastecer o estoque da loja com novos automóveis. As informações do automóvel serão passadas pelo usuário ao programa e, em seguida, serão colocadas em um objeto carro, para então serem inseridas em uma lista no objeto loja.
@@ -149,7 +151,8 @@ Ao entrar em abastecimento e vendas, o usuário terá acesso às seguintes opera
 
 Ao entrar em estoque, o usuário terá acesso às seguintes operações:
 
-![7](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/424ca90d-fd5c-423c-96bb-4763544e9fa3)
+![7](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/2c242080-7545-4b3d-a982-31d593ffec15)
+
 
 
 * Consultar Automóvel: O usuário poderá consultar um automóvel pelo seu modelo. Caso o automóvel não exista, o programa exibirá uma mensagem de erro. Caso o automóvel exista, o programa exibirá as informações do automóvel.
