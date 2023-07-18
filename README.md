@@ -16,7 +16,7 @@
 
 Este projeto foi desenvolvido para a disciplina de Linguagem de Programação II, como meio de avaliar os conhecimentos adquiridos pelo aluno ao longo da disciplina.
 
-Esta etapa consiste de na entrega final do projeto, na qual foi aperfeiçoado o programa, implementados todos os pré-requisitos da avaliação e desenvolvida uma interface gráfica para o mesmo.
+Esta etapa consiste de entrega final do projeto, na qual foi aperfeiçoado o programa, implementados todos os pré-requisitos da avaliação e desenvolvida uma interface gráfica para o mesmo.
 
 ### 
 
@@ -190,13 +190,18 @@ O projeto possui a seguinte estrutura de classes:
 
 Maps foi implementado na criação da coleção ClientesVIP, que contém todos os clientes da loja que possuam pelo menos um carro comprado. A indexação dos clientes foi feita o número de CPF, que é único para cada pessoa. Veja trechos deste código abaixo:
 
-# maps
+![Maps](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/c4328209-300a-4e2d-bb0e-85a4d1e27d39)
+
 
 #### 5.3. Interface Gráfica
 
 A implementação da interface gráfica foi feita utilizando a biblioteca Swing. Veja trechos do código abaixo:
 
-# GUI
+![GUI](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/ead70f1c-8eb8-4ecc-a92f-f33ca263d76d)
+![gui2](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/111e8fbe-bf8a-4416-96e3-af3e23e6fb20)
+![gui3](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/ee71b7c7-54f6-488d-b4db-c090a1f4dd31)
+![gui4](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/04e9973d-f6bd-47a4-adcf-4274f775ef57)
+
 
 ### 6. Tecnologias utilizadas
 
