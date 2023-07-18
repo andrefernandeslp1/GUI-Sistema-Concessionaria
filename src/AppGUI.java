@@ -2,7 +2,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.*;
 
-
 public class AppGUI extends JFrame {
     private Loja loja;
 
