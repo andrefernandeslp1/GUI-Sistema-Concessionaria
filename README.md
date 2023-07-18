@@ -168,6 +168,8 @@ Ao entrar em estoque, o usuário terá acesso às seguintes operações:
 
 * Zerar Estoque: Todos os automóveis cadastrados serão removidos da lista de automóveis da loja. Caso não exista nenhum automóvel cadastrado, o programa exibirá uma mensagem de alerta.
 
+
+
 ### 5. Implementação
 
 #### 5.1. Classes
@@ -192,7 +194,6 @@ Maps foi implementado na criação da coleção ClientesVIP, que contém todos o
 
 ![Maps](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/c4328209-300a-4e2d-bb0e-85a4d1e27d39)
 
-
 #### 5.3. Interface Gráfica
 
 A implementação da interface gráfica foi feita utilizando a biblioteca Swing. Veja trechos do código abaixo:
@@ -201,6 +202,7 @@ A implementação da interface gráfica foi feita utilizando a biblioteca Swing.
 ![gui2](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/111e8fbe-bf8a-4416-96e3-af3e23e6fb20)
 ![gui3](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/ee71b7c7-54f6-488d-b4db-c090a1f4dd31)
 ![gui4](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/04e9973d-f6bd-47a4-adcf-4274f775ef57)
+
 
 
 ### 6. Tecnologias utilizadas
@@ -212,6 +214,8 @@ Para compilar o programa, foi utilizado o compilador javac e o make.
 Para realizar as conversões de arquivo JSON-Objeto e Objeto-JSON, foi utilizada a biblioteca GSON.
 
 Para desenvolver a interface gráfica, foi utilizada a biblioteca Swing.
+
+
 
 ### 7. Conclusão
 
