@@ -62,7 +62,6 @@ public class AppGUI extends JFrame {
         JButton exitButton = new JButton("Sair do Programa");
         exitButton.addActionListener(e -> exitProgram());
 
-
         JButton novaLojaButton = new JButton("Criar Nova Loja");
         //novaLojaButton.addActionListener(e -> showNovaLojaPanel());
         novaLojaButton.addActionListener(e -> {
@@ -70,7 +69,6 @@ public class AppGUI extends JFrame {
             createInitialPanel();
             showInitialPanel();
         });
-
 
         initialPanel.add(nameLabel);
         initialPanel.add(caixaLabel);
@@ -82,7 +80,6 @@ public class AppGUI extends JFrame {
         initialPanel.add(exitButton);
 
         add(initialPanel);
-
     }
 
     private void createResourcesPanel() {
