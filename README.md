@@ -10,7 +10,7 @@
 
 ### Alunos: André Augusto Fernandes & Edvaldo Dantas de Medeiros Júnior
 
-#
+# 
 
 ### 1. Introdução
 
@@ -18,7 +18,7 @@ Este projeto foi desenvolvido para a disciplina de Linguagem de Programação II
 
 Esta etapa consiste de na entrega final do projeto, na qual foi aperfeiçoado o programa, implementados todos os pré-requisitos da avaliação e desenvolvida uma interface gráfica para o mesmo.
 
-###
+### 
 
 ### 2. Objetivo
 
@@ -34,7 +34,7 @@ Os requisitos da avaliação (3ª Unidade) eram desenvolver uma aplicação em J
 8. Coleções;
 9. Interface Gráfica
 
-###
+### 
 
 ### 3. Proposta
 
@@ -50,7 +50,7 @@ Para nosso projeto, criamos um sistema de informações para concessionárias de
 
 Tais departamentos serão dispostos em forma de menus para o usuário do sistema, em que cada menu possuirá sub-menus para realizar operações específicas para cada área, como cadastrar clientes, cadastrar funcionários, abastecer estoque, realizar vendas, entre outras.
 
-###
+### 
 
 ### 4. Instruções de Compilação e Execução/Uso
 
@@ -59,24 +59,25 @@ Tais departamentos serão dispostos em forma de menus para o usuário do sistema
 Para compilar o programa Java na linha de comando, siga as etapas abaixo:
 
 1. Certifique-se de ter o Java Development Kit (JDK) instalado no seu sistema. Você pode verificar isso digitando `java -version` no prompt de comando. Se o JDK estiver instalado corretamente, você verá a versão do Java sendo exibida. Certifique-se também que o make está instalado no seu sistema. Você pode verificar isso digitando `make -v` no prompt de comando. Se o make estiver instalado corretamente, você verá a versão do make sendo exibida. Caso o JDK ou o make não estejam instalados, você pode instalá-los através dos links abaixo:
-
+   
    * [JDK](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
-
+   
    * [make](http://gnuwin32.sourceforge.net/packages/make.htm)
 
 2. Baixe os arquivos deste repositório para uma pasta local de sua preferência.
 
 3. Abra um prompt de comando ou terminal no seu sistema operacional.
 
-4. Navegue até o diretório raiz do projeto, onde se encontra o arquivo Makefile, e execute o seguinte comando: **`make all`**
+4. Navegue até o diretório raiz do projeto, onde se encontra o arquivo Makefile, e execute o seguinte comando:
+    **`make all`**
    O comando acima irá compilar os arquivos .java e gerar os arquivos .class.
-   OBS: Caso o comando acima não funcione, tente executar o seguinte comando: **`javac -d bin -cp "lib/*" src/*.java`**
+   OBS: Caso o comando acima não funcione, tente executar o seguinte comando:
+    **`javac -d bin -cp "lib/*" src/*.java`**
    Após isto, se tudo correr bem, seu programa estará compilado e pronto para execução.
 
 Os arquivos serão compilados na estrutura padrão de diretórios de um projeto Java:
 
 ![0](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/ac24d40a-fe98-4cbb-a089-6f55fb61db02)
-
 
 ### 4.2. Execução
 
@@ -95,7 +96,6 @@ Para executar o programa, a partir do diretório raiz do projeto `LP2-Trabalho-U
 O seguinte menu será exibido:
 
 ![1](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/63c3026a-7814-4a24-850e-d95b7e9bd6fd)
-
 
 A partir do menu acima, o usuário iniciará sua jornada pelo SYSCAR - Sistema de Informações para Concessionárias de Automóveis.
 Aqui temos informações relativas à Loja e os botões dos menus que o usuário poderá acessar.
@@ -116,7 +116,6 @@ Ao entrar em recursos humanos, o usuário terá acesso às seguintes operações
 
 ![3](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/6ea4f8fe-e582-40c3-9a65-aadecca41618)
 
-
 Aqui o usuário poderá:
 
 * Cadastrar Funcionário: As informações do funcionário serão passadas pelo usuário ao programa e, em seguida, serão colocadas em um objeto funcionário, para então serem inseridas em uma lista no objeto loja.
@@ -132,7 +131,6 @@ Aqui o usuário poderá:
 Ao entrar em clientes, o usuário terá acesso às seguintes operações:
 
 ![4](https://github.com/andrefernandeslp1/LP2-Trabalho-U3_V2-GUI/assets/92834067/8b953035-a8cc-4f77-b693-bcf0d4f0e2ae)
-
 
 * Cadastrar Cliente: Aqui, o sistema irá solicitar ao usuário a matrícula do funcionário que está cadastrando o cliente, para que seja possível realizar a operação. O programa irá verificar a lista de funcionários da loja e, caso a matrícula fornecida não exista, o programa exibirá uma mensagem de erro. Caso a matrícula exista, o programa irá solicitar as informações do cliente e, em seguida, irá colocá-las em um objeto cliente, para então serem inseridas em uma lista no objeto loja.
 
@@ -172,6 +170,8 @@ Ao entrar em estoque, o usuário terá acesso às seguintes operações:
 
 ### 5. Implementação
 
+#### 5.1. Classes
+
 O projeto possui a seguinte estrutura de classes:
 
 <img title="" src="https://github.com/andrefernandeslp1/LP2-Trabalho-U3/assets/92834067/1d5ef57b-e184-48d9-88a6-dcf9f1c09756" alt="Captura de tela de 2023-07-03 16-02-22 - Copia" data-align="inline">
@@ -184,7 +184,19 @@ O projeto possui a seguinte estrutura de classes:
 
 * Loja: classe que possui os atributos e métodos necessários para gerenciar os departamentos da loja. Aqui se encontram as coleções de funcionários, clientes e automóveis da loja;
 
-* App: Classe que contem o main, no qual será executado o programa.
+* AppGUI: Classe que contem o main, no qual será executado o programa.
+
+#### 5.2. Maps
+
+Maps foi implementado na criação da coleção ClientesVIP, que contém todos os clientes da loja que possuam pelo menos um carro comprado. A indexação dos clientes foi feita o número de CPF, que é único para cada pessoa. Veja trechos deste código abaixo:
+
+# maps
+
+#### 5.3. Interface Gráfica
+
+A implementação da interface gráfica foi feita utilizando a biblioteca Swing. Veja trechos do código abaixo:
+
+# GUI
 
 ### 6. Tecnologias utilizadas
 
@@ -199,4 +211,3 @@ Para desenvolver a interface gráfica, foi utilizada a biblioteca Swing.
 ### 7. Conclusão
 
 O projeto foi desenvolvido com sucesso, atendendo aos requisitos da avaliação. O sistema possui uma interface gráfica simples e intuitiva, que permite ao usuário navegar facilmente entre os menus e realizar as operações desejadas.
-
